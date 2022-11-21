@@ -1,20 +1,13 @@
 <script setup>
+// IMPORTAR AQUÍ TODOS LOS COMPONENTES QUE QUEREMOS FIJOS!!!
+import Navigationbar from './components/Navigationbar.vue';
 import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
   <header class="header">
-      <h3>JVJ-REPAIRS</h3>
-      <nav v-if="!token">
-        <RouterLink to="/">Login</RouterLink> |
-        <RouterLink to="/signup">Signup</RouterLink>
-      </nav>
-      <nav v-else>
-        Welcome {{ email}} -
-        <button @click="logout">Logout</button>
-      </nav>
+    <Navigationbar></Navigationbar>
   </header>
-  <RouterView />
 </template>
 
 <script>
