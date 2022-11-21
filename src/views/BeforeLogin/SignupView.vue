@@ -31,7 +31,7 @@ import API from '../../services/api.js'
         <input type="text" v-model="newUser.phone" />
       </label>
 
-      <button @click.prevent="signupUser()">SIGNUP</button>
+      <button @click.prevent="signupUser">SIGNUP</button>
     </form>
   </main>
 </template>

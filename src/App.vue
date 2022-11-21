@@ -1,7 +1,7 @@
 <script setup>
 // IMPORTAR AQUÍ TODOS LOS COMPONENTES QUE QUEREMOS FIJOS!!!
 import Navigationbar from './components/Navigationbar.vue';
-import RouterView from 'vue-router'
+import {RouterView} from 'vue-router'
 </script>
 
 <template>
@@ -9,28 +9,19 @@ import RouterView from 'vue-router'
     <Navigationbar></Navigationbar>
   </header>
   <div id="main-view">
-    <RouterView/>
+    <RouterView />
   </div>
   <footer id="footer">
-
+    {{token}}
+    <div>ABCDEF</div>
   </footer>
 </template>
 
 <script>
-const token = localStorage.getItem('token')
-const email = localStorage.getItem('email')
-
 export default {
   data() {
     return {
-      token: ""
-    }
-  },
-  methods: {
-    logout() {
-      localStorage.removeItem('token')
-      localStorage.removeItem('email')
-      this.$router.push({name: 'login'})
+      token: localStorage.getItem("token")
     }
   }
 }
@@ -45,6 +36,7 @@ export default {
 }
 #main-view {
   background-color: aqua;
+  margin: 100px;
 }
 #footer {
   background-color: red;

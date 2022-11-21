@@ -9,45 +9,48 @@ async function signup(newUser) {
   localStorage.setItem('token', token)
   localStorage.setItem('email', email)
   localStorage.setItem('userId', userId)
-  return token;
+  return data;
 }
 
 async function login(newUser) {
-  const { data: { token, email, userId } } = await API.post('/auth/login', newUser)
-  localStorage.setItem('token', token)
-  localStorage.setItem('email', email)
-  localStorage.setItem('userId', userId)
-  return token;
+  debugger;
+  const response = await (await API.post('/auth/login', newUser));
+  localStorage.setItem('token', response.data.token)
+  localStorage.setItem('email', response.data.email)
+  localStorage.setItem('userId', response.data.userId)
+  return response;
 }
 
 async function getHistoryRepair() {
-  const { data } = await API.get(`/users/${userId}/historyrepair`)
-  return data;
+  debugger;
+  const userId = localStorage.getItem("userId");
+  const response = await API.get(`/users/${userId}/historyrepair`)
+  return response.data;
 }
 
 async function postNewRepair(newRepair) {
   const userId = localStorage.getItem("userId");
   newRepair.client = userId;
-  const { data } = await API.post('/repairs/', newRepair)
-  return data;
+  const response = await API.post('/repairs/', newRepair)
+  return response.data;
 }
 
 async function getUserProfile() {
   const userId = localStorage.getItem("userId");
-  const { data } = await API.get(`/users/client/${userId}`)
-  return data;
+  const response = await API.get(`/users/client/${userId}`)
+  return response.data;
 }
 
 async function putUserProfile() {
   const userId = localStorage.getItem("userId");
-  const {data} = await API.put(`/users/client/${userId}`)
-  return data;
+  const response = await API.put(`/users/client/${userId}`)
+  return response.data;
 }
 
 async function deleteUserprofile() {
   const userId = localStorage.getItem("userId");
-  const {data} = await API.delete(`/users/client/${userId}`)
-  return data;
+  const response = await API.delete(`/users/client/${userId}`)
+  return response.data;
 }
 
 export default {

@@ -17,7 +17,7 @@ import API from '../../services/api.js'
         <input type="password" v-model="newUser.password" />
       </label>
 
-      <button @click.prevent="loginUser()">LOGIN</button>
+      <button @click.prevent="loginUser">LOGIN</button>
     </form>
   </main>
 </template>

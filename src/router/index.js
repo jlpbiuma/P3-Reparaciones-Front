@@ -9,6 +9,7 @@ import SignupView from '../views/BeforeLogin/SignupView.vue'
 // AFTER LOGIN
 import HistoryRepView from '../views/AfterLogin/HistoryRepView.vue'
 import MyRepairsView from '../views/AfterLogin/MyRepairsView.vue'
+import NewRepairFormView from '../views/AfterLogin/NewRepairFormView.vue'
 import PendingView from '../views/AfterLogin/PendingView.vue'
 import ProfileView from '../views/AfterLogin/ProfileView.vue'
 
@@ -54,6 +55,14 @@ const router = createRouter({
       path:'/myrepairs',
       name:'myrepairs',
       component: MyRepairsView,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path:'/newrepair',
+      name:'newrepair',
+      component: NewRepairFormView,
       meta: {
         requiresAuth: true
       }
