@@ -8,13 +8,8 @@
       </label>
 
       <label>
-        SURNAME
-        <input type="text" v-model="newUser.surname"/>
-      </label>
-
-      <label>
         DNI
-        <input type="text" v-model="newUser.identification"/>
+        <input type="text" v-model="newUser.dni"/>
       </label>
 
       <label>
@@ -24,7 +19,12 @@
 
       <label>
         PASSWORD
-        <input type="password" v-model="newUser.password" />
+        <input type="password" v-model="newUser.password"/>
+      </label>
+
+      <label>
+        PHONE NUMBER
+        <input type="text" v-model="newUser.phone" />
       </label>
 
       <button @click.prevent="signupUser()">SIGNUP</button>

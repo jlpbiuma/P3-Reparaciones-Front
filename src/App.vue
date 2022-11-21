@@ -8,6 +8,9 @@ import { RouterLink, RouterView } from 'vue-router'
   <header class="header">
     <Navigationbar></Navigationbar>
   </header>
+  <div>
+    <RouterView/>
+  </div>
 </template>
 
 <script>

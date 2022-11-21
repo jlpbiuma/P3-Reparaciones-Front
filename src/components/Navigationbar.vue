@@ -1,10 +1,13 @@
 <template>
     <nav v-if="!token" id="navigationBar">
         <h3><RouterLink to="/">JVJ-REPAIRS</RouterLink></h3>
-        <RouterLink to="/login">LOGIN</RouterLink>
-        <RouterLink to="/signup">SIGNUP</RouterLink>
-        <RouterLink to="/myrepairs">MY REPAIRS</RouterLink>
-        <RouterView/>  
+        <RouterLink to="/myrepairs">My repairs</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/contact">Contact</RouterLink>
+        <RouterLink to="/signup"><button>Get started</button></RouterLink>
+        <RouterLink to="/login"><button>Login</button></RouterLink>
+        <RouterLink to="/profile"><button>Profile</button></RouterLink>
+        
     </nav>
     <nav v-else>
         Welcome {{email}} -

@@ -1,11 +1,8 @@
 <template>
-    <h1>WELCOME TO JVJ-REPAIRS!</h1>
-    <h2>We solve problems</h2>
-    <RouterLink to="/signup"><button>GET STARTED!</button></RouterLink>
+    <h3>THIS IS YOUR PROFILE</h3>
 </template>
 
 <script>
-import { RouterLink, RouterView } from 'vue-router'
 export default {
     data() {
         return {

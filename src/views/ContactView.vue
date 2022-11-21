@@ -1,5 +1,5 @@
 <template>
-    
+    <h3>CONTACT US</h3>
 </template>
 
 <script>

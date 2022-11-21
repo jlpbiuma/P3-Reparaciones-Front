@@ -1,5 +1,5 @@
 <template>
-    
+    <h3>ABOUT US</h3>
 </template>
 
 <script>
