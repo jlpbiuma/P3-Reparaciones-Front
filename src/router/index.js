@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '../views/LoginView.vue'
 import SignupView from '../views/SignupView.vue'
-import CheckAvailableRooms from '../views/CheckAvailableRooms.vue'
+import myRepairs from '../views/MyRepairsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,9 +17,9 @@ const router = createRouter({
       component: SignupView
     },
     {
-      path: '/checkAvailableRooms',
-      name: 'checkAvailableRooms',
-      component: CheckAvailableRooms,
+      path: '/myRepairs',
+      name: 'myRepairs',
+      component: myRepairs,
       meta: {
         requiresAuth: true
       }

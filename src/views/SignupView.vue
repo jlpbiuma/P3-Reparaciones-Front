@@ -40,10 +40,10 @@ export default {
     return {
       newUser: {
         name: '',
-        surname: '',
-        identification: '',
+        dni: '',
         email: '',
-        password: ''
+        password: '',
+        phone: ''
       }
     }
   },

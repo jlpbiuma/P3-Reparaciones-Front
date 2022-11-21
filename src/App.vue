@@ -4,7 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header class="header">
-      <h3>Hotelerio</h3>
+      <h3>JVJ-REPAIRS</h3>
       <nav v-if="!token">
         <RouterLink to="/">Login</RouterLink> |
         <RouterLink to="/signup">Signup</RouterLink>
@@ -14,7 +14,6 @@ import { RouterLink, RouterView } from 'vue-router'
         <button @click="logout">Logout</button>
       </nav>
   </header>
-
   <RouterView />
 </template>
 

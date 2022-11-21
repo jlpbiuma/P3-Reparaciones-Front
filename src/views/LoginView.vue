@@ -36,7 +36,7 @@ export default {
       if (response.error) {
         alert('wrong username/password')
       } else {
-        this.$router.push({name: 'checkAvailableRooms'})
+        console.log("Log correcto!")
       }
     }
   }

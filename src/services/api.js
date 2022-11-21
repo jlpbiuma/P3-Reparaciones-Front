@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const API = axios.create({
-  baseURL: 'https://hotelerio-backend-api.onrender.com/api'
+  baseURL: 'https://p2-reparaciones-production.up.railway.app/api'
 })
 
 async function signup(newUser) {
@@ -18,21 +18,7 @@ async function login(newUser) {
   return token
 }
 
-async function getAvailableRooms(checkin, checkout) {
-  const response = await API.get('/rooms/available', {
-    params: {
-      checkin,
-      checkout
-    }, headers: {
-      token: localStorage.getItem('token')
-    }
-  })
-  return response.data
-}
-
-
 export default {
   signup,
-  login,
-  getAvailableRooms
+  login
 }
