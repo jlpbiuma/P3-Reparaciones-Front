@@ -20,7 +20,7 @@ const email = localStorage.getItem('email')
 export default {
   data() {
     return {
-      token
+      token: ""
     }
   },
   methods: {

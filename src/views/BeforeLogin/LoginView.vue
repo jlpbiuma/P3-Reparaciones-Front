@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import API from '../services/api.js';
+import API from '../../services/api.js';
 
 export default {
   data() {
@@ -36,7 +36,7 @@ export default {
       if (response.error) {
         alert('wrong username/password')
       } else {
-        console.log("Log correcto!")
+        this.$router.push('myRepairs');
       }
     }
   }

@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import API from '../services/api.js';
+import API from '../../services/api.js';
 
 export default {
   data() {
@@ -53,7 +53,8 @@ export default {
       if (response.error) {
         alert('Error creating account')
       } else {
-        this.$router.push({name: 'checkAvailableRooms'})
+        // DE ESTA FORMA CAMBIAMOS LA VISTA DE UN VIEW DESDE UN VIEW!!
+        this.$router.push({name: 'myRepairs'})
       }
     }
   }
