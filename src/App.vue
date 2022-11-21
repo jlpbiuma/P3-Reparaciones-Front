@@ -1,16 +1,19 @@
 <script setup>
 // IMPORTAR AQUÍ TODOS LOS COMPONENTES QUE QUEREMOS FIJOS!!!
 import Navigationbar from './components/Navigationbar.vue';
-import { RouterLink, RouterView } from 'vue-router'
+import RouterView from 'vue-router'
 </script>
 
 <template>
-  <header class="header">
+  <header id="header">
     <Navigationbar></Navigationbar>
   </header>
-  <div>
+  <div id="main-view">
     <RouterView/>
   </div>
+  <footer id="footer">
+
+  </footer>
 </template>
 
 <script>
@@ -34,10 +37,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.header {
+#header {
   h3,nav {
     display: inline-block;
     margin-right: 40px;
   }
+}
+#main-view {
+  background-color: aqua;
+}
+#footer {
+  background-color: red;
 }
 </style>
