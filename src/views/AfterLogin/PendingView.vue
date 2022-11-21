@@ -1,19 +1,21 @@
-<template>
-    <ReparationBar></ReparationBar>
+<script setup>
+import { RouterLink, RouterView } from 'vue-router'
+import API from '../../services/api'
+import ReparationBar from '../../components/Reparationbar.vue'
+</script>
 
-    <RouterView/>
-  </template>
-  
-  <script>
-  import API from '../services/api'
-  import ReparationBar from '../components/Reparationbar.vue'
-  export default {
-    data() {
-      return {
-      }
-    },
-    methods: {
+<template>
+  <ReparationBar></ReparationBar>
+  <RouterView/>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
     }
+  },
+  methods: {
   }
-  </script>
-  
+}
+</script>

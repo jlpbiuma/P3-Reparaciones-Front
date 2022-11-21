@@ -1,15 +1,31 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import AboutView from '../views/AboutView.vue'
-import ContactView from '../views/ContactView.vue'
-import HomeView from '../views/HomeView.vue'
-import LoginView from '../views/LoginView.vue'
-import MyRepairsView from '../views/MyRepairsView.vue'
-import SignupView from '../views/SignupView.vue'
-import ProfileView from '../views/ProfileView.vue'
+// BEFORE LOGIN
+import AboutView from '../views/BeforeLogin/AboutView.vue'
+import ContactView from '../views/BeforeLogin/ContactView.vue'
+import HomeView from '../views/BeforeLogin/HomeView.vue'
+import LoginView from '../views/BeforeLogin/LoginView.vue'
+import SignupView from '../views/BeforeLogin/SignupView.vue'
+
+// AFTER LOGIN
+import HistoryRepView from '../views/AfterLogin/HistoryRepView.vue'
+import MyRepairsView from '../views/AfterLogin/MyRepairsView.vue'
+import PendingView from '../views/AfterLogin/PendingView.vue'
+import ProfileView from '../views/AfterLogin/ProfileView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    // BEFORE LOGIN:
+    {
+      path: '/about',
+      name: 'about',
+      component: AboutView
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: ContactView
+    },
     {
       path: '/',
       name: 'home',
@@ -25,31 +41,35 @@ const router = createRouter({
       name: 'signup',
       component: SignupView
     },
+    // AFTER LOGIN
     {
-      path: '/myRepairs',
-      name: 'myRepairs',
+      path: '/historyrepair',
+      name: 'historyrepair',
+      component: HistoryRepView,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path:'/myrepairs',
+      name:'myrepairs',
       component: MyRepairsView,
       meta: {
         requiresAuth: true
       }
     },
     {
-      path: '/contact',
-      name: 'contact',
-      component: ContactView
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: AboutView
+      path: '/pending',
+      name: 'pendingRepairs',
+      component: PendingView,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/profile',
       name: 'profile',
-      component: ProfileView,
-      meta: {
-        requiresAuth: true
-      }
+      component: ProfileView
     }
   ]
 })

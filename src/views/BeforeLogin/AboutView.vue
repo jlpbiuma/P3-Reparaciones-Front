@@ -1,3 +1,6 @@
+<script setup>
+</script>
+
 <template>
     <h3>ABOUT US</h3>
 </template>

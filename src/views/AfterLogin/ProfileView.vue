@@ -1,3 +1,6 @@
+<script setup>
+</script>
+
 <template>
     <h3>THIS IS YOUR PROFILE</h3>
 </template>

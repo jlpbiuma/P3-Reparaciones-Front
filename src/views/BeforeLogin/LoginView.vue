@@ -1,3 +1,7 @@
+<script setup>
+import API from '../../services/api.js'
+</script>
+
 <template>
   <main>
     <h1>LOGIN</h1>
@@ -19,8 +23,6 @@
 </template>
 
 <script>
-import API from '../../services/api.js';
-
 export default {
   data() {
     return {

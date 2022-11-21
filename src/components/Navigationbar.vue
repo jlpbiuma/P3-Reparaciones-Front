@@ -7,7 +7,6 @@
         <RouterLink to="/signup"><button>Get started</button></RouterLink>
         <RouterLink to="/login"><button>Login</button></RouterLink>
         <RouterLink to="/profile"><button>Profile</button></RouterLink>
-        
     </nav>
     <nav v-else>
         Welcome {{email}} -

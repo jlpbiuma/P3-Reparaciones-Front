@@ -1,14 +1,29 @@
 <template>
-    <nav>
-        <RouterLink to="/myrepairs">My repairs</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/contact">Contact</RouterLink>
-        <RouterLink to="/signup"><button>Get started</button></RouterLink>
+    <nav id="reparationBar">
+        <RouterLink to="/historyrepair">New Repair</RouterLink>
+        <RouterLink to="/myrepairs">Pending</RouterLink>
+        <RouterLink to="/pending">History</RouterLink>
     </nav>
 </template>
 
+<script setup>
+import { RouterLink, RouterView } from 'vue-router'
+</script>
+
+
 <script>
+
+export default {
+    data() {
+        return {
+        }
+    }
+}
 </script>
 
 <style>
+#reparationBar {
+    display: flex;
+    justify-content: space-around;
+}
 </style> 

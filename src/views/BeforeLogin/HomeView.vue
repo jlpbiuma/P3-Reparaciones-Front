@@ -1,3 +1,7 @@
+<script setup>
+import { RouterLink, RouterView } from 'vue-router'
+</script>
+
 <template>
     <h1>WELCOME TO JVJ-REPAIRS!</h1>
     <h2>We solve problems</h2>
@@ -5,7 +9,6 @@
 </template>
 
 <script>
-import { RouterLink, RouterView } from 'vue-router'
 export default {
     data() {
         return {
