@@ -1,3 +1,7 @@
+<script setup>
+import RouterLink from 'vue-router'
+</script>
+
 <template>
     <nav id="reparationBar">
         <RouterLink to="/historyrepair">New Repair</RouterLink>
@@ -6,9 +10,7 @@
     </nav>
 </template>
 
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-</script>
+
 
 
 <script>

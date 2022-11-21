@@ -1,4 +1,7 @@
 <script setup>
+import RouterView from 'vue-router'
+import API from '../../services/api'
+import ReparationBar from '../../components/Reparationbar.vue'
 </script>
 
 <template>

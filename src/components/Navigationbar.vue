@@ -1,3 +1,7 @@
+<script setup>
+import RouterLink from 'vue-router'
+</script>
+
 <template>
     <nav v-if="!token" id="navigationBar">
         <h3><RouterLink to="/">JVJ-REPAIRS</RouterLink></h3>
@@ -15,7 +19,6 @@
 </template>
 
 <script>
-import { RouterLink, RouterView } from 'vue-router'
 export default {
     data() {
         return {
