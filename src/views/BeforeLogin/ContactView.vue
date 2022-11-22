@@ -3,6 +3,7 @@
 
 <template>
     <h3>CONTACT US</h3>
+    hahahha
 </template>
 
 <script>
