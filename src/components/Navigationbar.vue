@@ -18,7 +18,7 @@ import { useAuthStore } from '../stores/authStore'
         
         <!-- LOGGED IN NAVITEMS -->
         <div v-else>
-            <RouterLink to="/myrepairs">My repairs</RouterLink>
+            <RouterLink to="/unasignedRepairs">My repairs</RouterLink>
             <RouterLink to="/profile">
                 <button>Profile</button>
                 {{ authStore.userEmail }}

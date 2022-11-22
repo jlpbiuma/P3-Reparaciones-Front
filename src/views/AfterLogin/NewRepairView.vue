@@ -1,40 +1,56 @@
 <script setup>
-// PONER EN SETUP SIEMPRE LO QUE SE VAYA A IMPORTAR
-import ReparationBar from '../../components/Reparationbar.vue'
-import {RouterView} from 'vue-router'
-import API from '../../services/api'
-import RepairList from '../../components/RepairList.vue'
+import API from '../../services/api.js'
+import { useAuthStore } from '../../stores/authStore'
 </script>
 
 <template>
-  <ReparationBar></ReparationBar>
-  <RouterLink to="/newrepair"><button>CREATE NEW REPAIR</button></RouterLink>
-  <RouterView/>
+    <main>
+        <h1>CREATE NEW REPAIR</h1>
+        <form class="form">
+            <label>
+                DEVICE
+                <input type="text" v-model="newRepair.device" />
+            </label>
+            <label>
+                ISSUE:
+                <input type="text" v-model="newRepair.issue" />
+            </label>
+            <label>
+                SELFDIAGNOSIS:
+                <input type="email" v-model="newRepair.selfdiagnosis" />
+            </label>
+            <button @click.prevent="createNewRepair()">Create</button>
+        </form>
+    </main>
+
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      repairHistory: []
+export  default {
+    data(){
+        return {
+        newRepair: {
+            device: '',
+            issue: '',
+            selfdiagnosis: ''
+            },
+        authStore: useAuthStore()
+        }
+    },
+    methods: {
+        async createNewRepair(){
+            const rightNow = new Date();
+            this.newRepair.enterDate = rightNow.toISOString()
+            this.newRepair.client = this.authStore.userId;
+            const response = await API.postNewRepair(this.newRepair, this.authStore.token)
+            if (response.error) {
+                alert('Error creating a new Repair')
+            }
+            else
+            {
+                this.$router.push({name: 'unasignedRepairs'})
+            }
+        }
     }
-  },
-  methods: {
-    getMyRepairs: async function() {
-      const {data} = await API.get(this.repairs)
-      if (data === []) {
-        return "Oops, you don't have any Repairs"
-      } else {
-        this.repairHistory = data.filter(individualRepair => individualRepair.technician == "")
-      }
-    }
-  },
-  components: {
-    RepairList
-  }
 }
 </script>
-
-<style>
-
-</style>

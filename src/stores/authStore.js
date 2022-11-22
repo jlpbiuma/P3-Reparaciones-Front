@@ -6,7 +6,8 @@ export const useAuthStore = defineStore('auth', {
     return {
       token: useStorage('token', null), // CONECTAR CON LOCALSTORAGE
       email: useStorage('email', null),
-      id: useStorage('id', null)
+      id: useStorage('id', null),
+      repairViewState: useStorage('repairState',null)
     }
   },
   getters: {

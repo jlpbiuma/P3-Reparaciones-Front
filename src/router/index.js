@@ -9,10 +9,16 @@ import LoginView from '../views/BeforeLogin/LoginView.vue'
 import SignupView from '../views/BeforeLogin/SignupView.vue'
 
 // AFTER LOGIN
+import RepairView from '../views/AfterLogin/RepairUnasignedView.vue'
+import NewRepairView from '../views/AfterLogin/NewRepairView.vue'
+/*
 import HistoryRepView from '../views/AfterLogin/HistoryRepView.vue'
 import MyRepairsView from '../views/AfterLogin/MyRepairsView.vue'
-import NewRepairFormView from '../views/AfterLogin/NewRepairFormView.vue'
 import PendingView from '../views/AfterLogin/PendingView.vue'
+*/
+import RepairDoneView from '../views/AfterLogin/RepairDoneView.vue'
+import RepairPendingView from '../views/AfterLogin/RepairPendingView.vue'
+import RepairUnasignedView from '../views/AfterLogin/RepairUnasignedView.vue'
 import ProfileView from '../views/AfterLogin/ProfileView.vue'
 
 const router = createRouter({
@@ -46,33 +52,33 @@ const router = createRouter({
     },
     // AFTER LOGIN
     {
-      path: '/historyrepair',
-      name: 'historyrepair',
-      component: HistoryRepView,
+      path: '/newRepair',
+      name: 'newRepair',
+      component: NewRepairView,
       meta: {
         requiresAuth: true
       }
     },
     {
-      path:'/myrepairs',
-      name:'myrepairs',
-      component: MyRepairsView,
+      path: '/unasignedRepairs',
+      name: 'unasignedRepairs',
+      component: RepairUnasignedView,
       meta: {
         requiresAuth: true
       }
     },
     {
-      path:'/newrepair',
-      name:'newrepair',
-      component: NewRepairFormView,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/pending',
+      path: '/pendingRepairs',
       name: 'pendingRepairs',
-      component: PendingView,
+      component: RepairPendingView,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/doneRepairs',
+      name: 'doneRepairs',
+      component: RepairDoneView,
       meta: {
         requiresAuth: true
       }
@@ -84,16 +90,30 @@ const router = createRouter({
     }
   ]
 })
-
-router.beforeEach((to,_,next)=> {
+// ADD NEW ROUTE CHECKROL WITH GET BACKEND
+router.beforeEach((to, _, next) => {
   const authStore = useAuthStore()
   // Si la ruta a donde quiero ir necesita autenticación
   // ... y no tengo el token, llévame a la pagina de login
   if (to.meta.requiresAuth && !authStore.isLoggedIn) {
-    next({name: 'login'})
+    next({ name: 'login' })
   } else {
     next()
   }
+})
+
+router.beforeEach((to, _, next) => {
+  const authStore = useAuthStore()
+  if (to.name == "unasignedRepairs") {
+    authStore.repairViewState = "unasignedRepairs";
+  }
+  else if (to.name == "pendingRepairs") {
+    authStore.repairViewState = "pendingRepairs";
+  }
+  else if (to.name == "doneRepairs") {
+    authStore.repairViewState = "doneRepairs";
+  }
+  next()
 })
 
 export default router

@@ -4,9 +4,10 @@ import {RouterLink} from 'vue-router'
 
 <template>
     <nav id="reparationBar">
-        <RouterLink to="/historyrepair">New Repair</RouterLink>
-        <RouterLink to="/myrepairs">Pending</RouterLink>
-        <RouterLink to="/pending">History</RouterLink>
+        <RouterLink to="/newRepair"><button>CREATE NEW Repair!</button></RouterLink>
+        <RouterLink to="/unasignedRepairs">New Repair</RouterLink>
+        <RouterLink to="/pendingRepairs">Pending</RouterLink>
+        <RouterLink to="/doneRepairs">History</RouterLink>
     </nav>
 </template>
 

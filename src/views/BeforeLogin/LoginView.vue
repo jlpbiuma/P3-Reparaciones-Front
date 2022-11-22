@@ -41,9 +41,8 @@ export default {
         alert('wrong username/password')
       } else {
         const {token, email, id} = response
-        console.log(response, id)
         this.authStore.login(token, email, id)
-        this.$router.push('myRepairs');
+        this.$router.push('unasignedRepairs');
       }
     }
   }

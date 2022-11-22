@@ -9,7 +9,7 @@
         AUTODIAGNÓSTICO: {{repair.selfdiagnosis}}
     </div>
     <div>
-        CLIENT: {{}}
+        CLIENT: {{repair.client}}
     </div>
 </template>
 

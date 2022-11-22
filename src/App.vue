@@ -12,7 +12,6 @@ import {RouterView} from 'vue-router'
     <RouterView />
   </div>
   <footer id="footer">
-    {{token}}
     <div>ABCDEF</div>
   </footer>
 </template>
@@ -21,7 +20,6 @@ import {RouterView} from 'vue-router'
 export default {
   data() {
     return {
-      token: localStorage.getItem("token")
     }
   }
 }

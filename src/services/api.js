@@ -15,17 +15,16 @@ async function login(newUser) {
 }
 
 async function getHistoryRepair(userId, token) {
-  console.log(token, userId);
   const response = await API.get(
-    `/users/${userId}/historyrepair`,
+    `/users/636d3818dd003405950ca7f7/historyrepair`,
     {headers: { token }}
   )
   return response.data;
 }
 
-async function postNewRepair(newRepair) {
-  const userId = localStorage.getItem("userId");
-  const response = await API.post('/repairs/', newRepair)
+async function postNewRepair(newRepair, token) {
+  const response = await API.post('/repairs/', newRepair, {headers: { token }})
+  console.log(response)
   return response.data;
 }
 

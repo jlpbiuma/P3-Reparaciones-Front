@@ -60,7 +60,7 @@ export default {
         const {token, email, id} = response
         this.authStore.login(token, email, id)        
         // DE ESTA FORMA CAMBIAMOS LA VISTA DE UN VIEW DESDE UN VIEW!!
-        this.$router.push({name: 'myRepairs'})
+        this.$router.push({name: 'unasignedRepairs'})
       }
     }
   }

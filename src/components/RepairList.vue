@@ -4,7 +4,7 @@ import RepairCard from './RepairCard.vue'
 
 <template>
     <div>ESTE ES EL COMPONENTE LISTA:</div>
-    <RepairCard v-for="(repair,index) in repairHistory" :key="index" :repair="repair"></RepairCard>
+    <RepairCard v-for="(repair,index) in repairs" :key="index" :repair="repair"></RepairCard>
 </template>
 
 
@@ -14,7 +14,7 @@ export default {
         return {
         }
     },
-    props: ["repairHistory"],
+    props: ["repairs"],
     components: {
         RepairCard
     }
