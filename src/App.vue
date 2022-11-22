@@ -28,6 +28,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 #header {
   h3,nav {
     display: inline-block;
@@ -35,10 +36,11 @@ export default {
   }
 }
 #main-view {
-  background-color: aqua;
-  margin: 100px;
+  background-color: rgb(245, 245, 245);
+  padding: 100px;
 }
 #footer {
-  background-color: red;
+  background-color: rgb(32, 32, 32);
+  color: white;
 }
 </style>
