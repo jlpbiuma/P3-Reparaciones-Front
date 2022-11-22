@@ -10,7 +10,7 @@ import { useAuthStore } from '../stores/authStore'
              <!-- LOGGED IN NAVITEMS -->
             <!--   <div v-else> -->
 
-<nav class="navbar navbar-expand-lg bg-dark">
+<nav class="navbar fixed-top navbar-expand bg-dark" style="width:100%"  >
   <div class="container-fluid">
     
     <a class="navbar-brand" href="#"><RouterLink to="/">JVJ-REPAIRS</RouterLink></a>
@@ -79,11 +79,15 @@ export default {
 
 <style scoped>
 nav{
-      width:100%;
+      display: flex;
+      flex-wrap:wrap;
 }
 a{
     color: white;
     text-decoration-line: none;
+}
+a:hover{
+  color:  rgb(255, 145, 0);
 }
 button{
     border-radius: 7px;
