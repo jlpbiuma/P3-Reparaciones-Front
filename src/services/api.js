@@ -5,8 +5,8 @@ const API = axios.create({
 })
 
 async function signup(newUser) {
-  const { data } = await API.post('/auth/signup', newUser)
-  return data;
+  const response = await API.post('/auth/signup', newUser)
+  return response.data;
 }
 
 async function login(newUser) {
@@ -14,17 +14,43 @@ async function login(newUser) {
   return response.data;
 }
 
-async function getHistoryRepair(userId, token) {
-  const response = await API.get(
-    `/users/636d3818dd003405950ca7f7/historyrepair`,
-    {headers: { token }}
-  )
+async function getAllUnasignedRepairs(token) {
+  const response = await API.get(`/repairs/unasigned`, {headers: {token}})
+  return response.data;
+}
+
+async function getAllUnasignedRepairsByClientId(userId, token) {
+  const response = await API.get(`/repairs/unasigned/${userId}`, {headers: { token }})
+  return response.data;
+}
+
+async function getAllAsignedRepairs(token) {
+  const response = await API.get(`/repairs/asigned`, {headers: {token}})
+  return response.data;
+}
+
+async function getAllAsignedRepairsByUserId(userId, token) {
+  const response = await API.get(`/repairs/asigned/${userId}`, {headers: {token}})
+  return response.data;
+}
+
+async function getAllDoneRepairs(token) {
+  const response = await API.get(`/repairs/done`, {headers: {token}})
+  return response.data;
+}
+
+async function getAllDoneRepairsByUserId(userId, token) {
+  const response = await API.get(`/repairs/done/${userId}`, {headers: {token}})
+  return response.data;
+}
+
+async function putAsignToEmployee(userId, token) {
+  const response = await API.put(`/repairs/unasigned/${userId}`, {headers: {token}})
   return response.data;
 }
 
 async function postNewRepair(newRepair, token) {
   const response = await API.post('/repairs/', newRepair, {headers: { token }})
-  console.log(response)
   return response.data;
 }
 
@@ -49,7 +75,13 @@ async function deleteUserprofile() {
 export default {
   signup,
   login,
-  getHistoryRepair,
+  getAllUnasignedRepairs,
+  getAllUnasignedRepairsByClientId,
+  getAllAsignedRepairs,
+  getAllAsignedRepairsByUserId,
+  getAllDoneRepairs,
+  getAllDoneRepairsByUserId,
+  putAsignToEmployee,
   postNewRepair,
   getUserProfile,
   putUserProfile,

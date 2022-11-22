@@ -15,7 +15,6 @@ import {RouterLink} from 'vue-router'
 
 
 <script>
-
 export default {
     data() {
         return {

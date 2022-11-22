@@ -21,8 +21,7 @@ export default {
         }
     },
     async created () {
-        const repairsResponse = await API.getHistoryRepair(this.authStore.id, this.authStore.token)
-        this.repairs = repairsResponse.filter(repair => Object.keys(repair).length <= 7)
+        this.repairs = await API.getAllAsignedRepairsByUserId(this.authStore.id, this.authStore.token)
     },
     components: {
         RepairList

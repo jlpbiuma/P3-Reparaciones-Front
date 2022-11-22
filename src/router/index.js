@@ -17,7 +17,7 @@ import MyRepairsView from '../views/AfterLogin/MyRepairsView.vue'
 import PendingView from '../views/AfterLogin/PendingView.vue'
 */
 import RepairDoneView from '../views/AfterLogin/RepairDoneView.vue'
-import RepairPendingView from '../views/AfterLogin/RepairPendingView.vue'
+import RepairPendingView from '../views/AfterLogin/RepairAsignedView.vue'
 import RepairUnasignedView from '../views/AfterLogin/RepairUnasignedView.vue'
 import ProfileView from '../views/AfterLogin/ProfileView.vue'
 

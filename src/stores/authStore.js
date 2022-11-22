@@ -7,7 +7,8 @@ export const useAuthStore = defineStore('auth', {
       token: useStorage('token', null), // CONECTAR CON LOCALSTORAGE
       email: useStorage('email', null),
       id: useStorage('id', null),
-      repairViewState: useStorage('repairState',null)
+      rol: useStorage('rol', null),
+      repairViewState: useStorage('repairState', null)
     }
   },
   getters: {
@@ -19,6 +20,9 @@ export const useAuthStore = defineStore('auth', {
     },
     userId() {
       return this.id
+    },
+    userRol() {
+      return this.rol
     }
   },
   actions: {
@@ -26,11 +30,13 @@ export const useAuthStore = defineStore('auth', {
       this.token = null
       this.email = null
       this.id = null
+      this.rol = null
     },
-    login(token, email, id) {
+    login(token, email, id, rol) {
       this.token = token
       this.email = email
       this.id = id
+      this.rol = rol
     }
   }
 })
