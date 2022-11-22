@@ -6,6 +6,7 @@ import {RouterLink} from 'vue-router'
     <h1>WELCOME TO JVJ-REPAIRS!</h1>
     <h2>We solve problems</h2>
     <RouterLink to="/signup"><button>GET STARTED!</button></RouterLink>
+    
 </template>
 
 <script>
