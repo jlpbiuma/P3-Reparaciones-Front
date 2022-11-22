@@ -20,9 +20,24 @@ import {RouterLink} from 'vue-router'
     <div class="card">
       <div class="card-body d-flex flex-column">
         <p class="card-text"><h3>News</h3></p>
-        <p class="card-text">No news for the moment</p>
+        <p class="card-text"><h5>Apple and Google face gaming and mobile browser probe</h5></p>
+        <img  class="img" style="width: auto; "  src="../../../images/gaming.jpg">
+        <br>
+        <p class="card-text">Apple and Google's dominance over cloud gaming and mobile browsers will be investigated by the UK's competition regulator, it has announced.
+
+Last year, a "market study" by the Competition and Markets Authority (CMA) concluded they had a "stranglehold" over operating systems, app stores and web browsers on mobile devices.
+
+If the 18-month investigation finds an adverse effect on competition, the CMA can impose changes.
+
+Both companies deny the accusations.
+
+CMA interim chief executive Sarah Cardell said it wanted to ensure UK:
+
+<li>consumers received the best new mobile data services</li>
+<li>developers could invest in innovative new apps</li></p>
+
         <div class="row-sm img-right">
-        <img  class="img" style="width: 20vw; float: right" >
+        <img  class="img" style="width: fit-content; float: right" >
         </div>
       </div>
     </div>
