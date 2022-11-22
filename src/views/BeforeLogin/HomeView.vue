@@ -32,9 +32,10 @@ If the 18-month investigation finds an adverse effect on competition, the CMA ca
 Both companies deny the accusations.
 
 CMA interim chief executive Sarah Cardell said it wanted to ensure UK:
-
-<li>consumers received the best new mobile data services</li>
-<li>developers could invest in innovative new apps</li></p>
+<ul>
+<li><em>Consumers received the best new mobile data services</em></li>
+<li><em>Developers could invest in innovative new apps</em></li></ul>
+</p>
 
         <div class="row-sm img-right">
         <img  class="img" style="width: fit-content; float: right" >
