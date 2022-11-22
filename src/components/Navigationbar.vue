@@ -1,17 +1,31 @@
 <script setup>
 import {RouterLink} from 'vue-router'
+import { useAuthStore } from '../stores/authStore'
 </script>
 
 <template>
     <nav id="navigationBar">
+        <!-- COMMON MENU NAVITEMS -->
         <RouterLink to="/">JVJ-REPAIRS</RouterLink>
-        <RouterLink to="/myrepairs">My repairs</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/contact">Contact</RouterLink>
-        <RouterLink to="/signup"><button>Get started</button></RouterLink>
-        <RouterLink to="/login" ><button>Login</button></RouterLink>
-        <RouterLink to="/profile"><button>Profile</button></RouterLink>
-        <button @click="logout">Logout</button>
+        <RouterLink to="/about">About</RouterLink>
+        
+        <!-- LOGOUT NAVITEMS -->
+        <div v-if="!authStore.isLoggedIn">
+            <RouterLink to="/signup"><button>Get started</button></RouterLink>
+            <RouterLink to="/login" ><button>Login</button></RouterLink>
+        </div>
+        
+        <!-- LOGGED IN NAVITEMS -->
+        <div v-else>
+            <RouterLink to="/myrepairs">My repairs</RouterLink>
+            <RouterLink to="/profile">
+                <button>Profile</button>
+                {{ authStore.userEmail }}
+            </RouterLink>
+            <button @click="logout">Logout</button>
+        </div>
+        
     </nav>
 </template>
 
@@ -19,12 +33,12 @@ import {RouterLink} from 'vue-router'
 export default {
     data() {
         return {
+            authStore: useAuthStore()
         }
     },
     methods: {
         logout() {
-            console.log("Clean")
-            localStorage.clear();
+            this.authStore.logout()
             this.$router.push({name: 'login'})
         }
     }

@@ -1,5 +1,6 @@
 <script setup>
 import API from '../../services/api.js'
+import { useAuthStore } from '../../stores/authStore'
 </script>
 
 <template>
@@ -29,7 +30,8 @@ export default {
       newUser: {
         email: '',
         password: ''
-      }
+      },
+      authStore: useAuthStore()
     }
   },
   methods: {
@@ -38,6 +40,9 @@ export default {
       if (response.error) {
         alert('wrong username/password')
       } else {
+        const {token, email, id} = response
+        console.log(response, id)
+        this.authStore.login(token, email, id)
         this.$router.push('myRepairs');
       }
     }

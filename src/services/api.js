@@ -5,26 +5,22 @@ const API = axios.create({
 })
 
 async function signup(newUser) {
-  const { data: { token, email, userId } } = await API.post('/auth/signup', newUser)
-  localStorage.setItem('token', token)
-  localStorage.setItem('email', email)
-  localStorage.setItem('userId', userId)
+  const { data } = await API.post('/auth/signup', newUser)
   return data;
 }
 
 async function login(newUser) {
-  debugger;
   const response = await (await API.post('/auth/login', newUser));
-  localStorage.setItem('token', response.data.token)
-  localStorage.setItem('email', response.data.email)
-  localStorage.setItem('userId', response.data.userId)
-  return response;
+  return response.data;
 }
 
-async function getHistoryRepair() {
-  debugger;
-  const userId = localStorage.getItem("userId");
-  const response = await API.get(`/users/${userId}/historyrepair`)
+async function getHistoryRepair(userId, token) {
+  console.log(localStorage.token);
+  //const userId = localStorage.getItem("userId");
+  const response = await API.get(
+    `/users/${userId}/historyrepair`, 
+    {headers: { token }}
+  )
   return response.data;
 }
 

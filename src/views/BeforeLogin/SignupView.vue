@@ -1,5 +1,6 @@
 <script setup>
 import API from '../../services/api.js'
+import { useAuthStore } from '../../stores/authStore'
 </script>
 
 <template>
@@ -46,7 +47,8 @@ export default {
         email: '',
         password: '',
         phone: ''
-      }
+      },
+      authStore: useAuthStore()
     }
   },
   methods: {
@@ -55,6 +57,8 @@ export default {
       if (response.error) {
         alert('Error creating account')
       } else {
+        const {token, email, id} = response
+        this.authStore.login(token, email, id)        
         // DE ESTA FORMA CAMBIAMOS LA VISTA DE UN VIEW DESDE UN VIEW!!
         this.$router.push({name: 'myRepairs'})
       }

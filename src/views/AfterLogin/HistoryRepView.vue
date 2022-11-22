@@ -20,7 +20,7 @@ export default {
   },
   async created() {
       const {data} = await API.getHistoryRepair();
-      this.repairHistory = data.filter(individualRepair => individualRepair.thecnician == "")
+      this.repairHistory = data;
   },
   components: {
     RepairList

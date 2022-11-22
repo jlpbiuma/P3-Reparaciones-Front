@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useAuthStore } from '../stores/authStore'
+
 // BEFORE LOGIN
 import AboutView from '../views/BeforeLogin/AboutView.vue'
 import ContactView from '../views/BeforeLogin/ContactView.vue'
@@ -84,12 +86,10 @@ const router = createRouter({
 })
 
 router.beforeEach((to,_,next)=> {
-  console.log(`to: ${to.name} -- Auth Required? ${to.meta.requiresAuth}`)
-
-  const token = localStorage.getItem('token')
+  const authStore = useAuthStore()
   // Si la ruta a donde quiero ir necesita autenticación
   // ... y no tengo el token, llévame a la pagina de login
-  if (to.meta.requiresAuth && !token) {
+  if (to.meta.requiresAuth && !authStore.isLoggedIn) {
     next({name: 'login'})
   } else {
     next()
