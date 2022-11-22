@@ -54,21 +54,23 @@ async function postNewRepair(newRepair, token) {
   return response.data;
 }
 
-async function getUserProfile() {
-  const userId = localStorage.getItem("userId");
-  const response = await API.get(`/users/client/${userId}`)
+async function getUserProfile(userId, token) {
+  const response = await API.get(`/users/client/${userId}`, {headers: { token }})
   return response.data;
 }
 
-async function putUserProfile() {
-  const userId = localStorage.getItem("userId");
-  const response = await API.put(`/users/client/${userId}`)
+async function putUserProfile(userId, token) {
+  const response = await API.put(`/users/client/${userId}`, {headers: { token }})
   return response.data;
 }
 
-async function deleteUserprofile() {
-  const userId = localStorage.getItem("userId");
-  const response = await API.delete(`/users/client/${userId}`)
+async function deleteUserprofile(userId, token) {
+  const response = await API.delete(`/users/client/${userId}`, {headers: { token }})
+  return response.data;
+}
+
+async function deleteRepair(repairId, token) {
+  const response = await API.delete(`/repairs/${repairId}`, {headers: { token }})
   return response.data;
 }
 
@@ -85,5 +87,6 @@ export default {
   postNewRepair,
   getUserProfile,
   putUserProfile,
-  deleteUserprofile
+  deleteUserprofile,
+  deleteRepair
 }

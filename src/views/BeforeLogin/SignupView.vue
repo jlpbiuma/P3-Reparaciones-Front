@@ -57,8 +57,8 @@ export default {
       if (response.error) {
         alert('Error creating account')
       } else {
-        const {token, email, id} = response
-        this.authStore.login(token, email, id)        
+        const {token, email, id, rol} = response
+        this.authStore.login(token, email, id, rol)        
         // DE ESTA FORMA CAMBIAMOS LA VISTA DE UN VIEW DESDE UN VIEW!!
         this.$router.push({name: 'unasignedRepairs'})
       }

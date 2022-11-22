@@ -21,7 +21,14 @@ export default {
         }
     },
     async created () {
-        this.repairs = await API.getAllAsignedRepairsByUserId(this.authStore.id, this.authStore.token)
+        if (this.authStore.rol == "admin")
+        {
+            this.repairs = await API.getAllAsignedRepairs(this.authStore.token)
+        }
+        else
+        {
+            this.repairs = await API.getAllAsignedRepairsByUserId(this.authStore.id, this.authStore.token)
+        }
     },
     components: {
         RepairList

@@ -19,11 +19,18 @@ export default {
     data () {
         return {
             authStore: useAuthStore(),
-            repairHistory : []
+            repairs : []
         }
     },
     async created () {
-        this.repairs = await API.getAllDoneRepairsByUserId(this.authStore.id, this.authStore.token)
+        if (this.authStore.rol == "admin")
+        {
+            this.repairs = await API.getAllDoneRepairs(this.authStore.token)
+        }
+        else
+        {
+            this.repairs = await API.getAllDoneRepairsByUserId(this.authStore.id, this.authStore.token)
+        }
     },
     components: {
         RepairList

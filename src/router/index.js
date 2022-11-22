@@ -68,8 +68,8 @@ const router = createRouter({
       }
     },
     {
-      path: '/pendingRepairs',
-      name: 'pendingRepairs',
+      path: '/asignedRepairs',
+      name: 'asignedRepairs',
       component: RepairPendingView,
       meta: {
         requiresAuth: true
@@ -107,10 +107,11 @@ router.beforeEach((to, _, next) => {
   if (to.name == "unasignedRepairs") {
     authStore.repairViewState = "unasignedRepairs";
   }
-  else if (to.name == "pendingRepairs") {
-    authStore.repairViewState = "pendingRepairs";
+  else if (to.name == "asignedRepairs") {
+    authStore.repairViewState = "asignedRepairs";
   }
   else if (to.name == "doneRepairs") {
+    debugger;
     authStore.repairViewState = "doneRepairs";
   }
   next()

@@ -40,9 +40,16 @@ export default {
       if (response.error) {
         alert('wrong username/password')
       } else {
-        const {token, email, id} = response
-        this.authStore.login(token, email, id)
-        this.$router.push('unasignedRepairs');
+        const {token, email, id, rol} = response
+        this.authStore.login(token, email, id, rol)
+        if( rol == "admin")
+        {
+          this.$router.push('unasignedRepairs');
+        }
+        else
+        {
+          this.$router.push('unasignedRepairs');
+        }
       }
     }
   }
