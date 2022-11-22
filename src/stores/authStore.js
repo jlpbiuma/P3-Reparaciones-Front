@@ -30,6 +30,6 @@ export const useAuthStore = defineStore('auth', {
       this.token = token
       this.email = email
       this.id = id
-    },
-  },
+    }
+  }
 })
