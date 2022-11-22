@@ -15,8 +15,7 @@
 
 <script>
 export default {
-    props: {
-    }
+    props: ['repair']
 }
 </script>
 

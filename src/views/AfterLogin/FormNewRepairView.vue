@@ -1,5 +1,6 @@
 <script setup>
 import API from '../../services/api.js'
+import { useAuthStore } from '../../stores/authStore'
 </script>
 
 <template>
@@ -35,11 +36,13 @@ export  default {
             device: '',
             issue: '',
             selfdiagnosis: ''
-            }
+            },
+        authStore: useAuthStore()
         }
     },
     methods: {
     async createNewRepair(){
+        this.newRepair.client = this.authStore.userId;
         const response = await API.postNewRepair(this.newRepair)
         if (response.error) {
             alert('Error creating a new Repair')

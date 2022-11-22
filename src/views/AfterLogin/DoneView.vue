@@ -1,5 +1,6 @@
 <script setup>
 import {RouterView} from 'vue-router'
+import { useAuthStore } from '../../stores/authStore'
 import API from '../../services/api'
 import ReparationBar from '../../components/Reparationbar.vue'
 import RepairList from '../../components/RepairList.vue';
@@ -15,12 +16,13 @@ import RepairList from '../../components/RepairList.vue';
 export default {
   data() {
     return {
-      repairHistory: []
+      repairHistory: [],
+      authStore: useAuthStore()
     }
   },
   async created() {
-      const {data} = await API.getHistoryRepair();
-      this.repairHistory = data;
+    const data = await API.getHistoryRepair(this.authStore.id, this.authStore.token);
+    this.repairHistory = data.filter();
   },
   components: {
     RepairList
