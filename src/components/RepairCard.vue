@@ -55,11 +55,11 @@ export default {
         async asignRepair() {
             console.log(this.repair._id)
             console.log(this.authStore.token)
-            const response = await API.putAsignToEmployee(this.repair._id, this.authStore.token)
+            const response = await API.putAsignToEmployee(this.repair._id, this.authStore.id, this.authStore.token)
             console.log("Objeto asignado", response);
         },
         async activateForm() {
-            form = !form;
+            this.form = !this.form;
         }
     }
 }
