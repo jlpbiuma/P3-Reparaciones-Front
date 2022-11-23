@@ -7,19 +7,15 @@ import ContactView from '../views/BeforeLogin/ContactView.vue'
 import HomeView from '../views/BeforeLogin/HomeView.vue'
 import LoginView from '../views/BeforeLogin/LoginView.vue'
 import SignupView from '../views/BeforeLogin/SignupView.vue'
+import AdminLoginView from '../views/BeforeLogin/AdminLoginView.vue'
 
 // AFTER LOGIN
-import RepairView from '../views/AfterLogin/RepairUnasignedView.vue'
 import NewRepairView from '../views/AfterLogin/NewRepairView.vue'
-/*
-import HistoryRepView from '../views/AfterLogin/HistoryRepView.vue'
-import MyRepairsView from '../views/AfterLogin/MyRepairsView.vue'
-import PendingView from '../views/AfterLogin/PendingView.vue'
-*/
 import RepairDoneView from '../views/AfterLogin/RepairDoneView.vue'
-import RepairPendingView from '../views/AfterLogin/RepairAsignedView.vue'
+import RepairAsignedView from '../views/AfterLogin/RepairAsignedView.vue'
 import RepairUnasignedView from '../views/AfterLogin/RepairUnasignedView.vue'
 import ProfileView from '../views/AfterLogin/ProfileView.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,6 +46,11 @@ const router = createRouter({
       name: 'signup',
       component: SignupView
     },
+    {
+      path: '/adminLogin',
+      name: 'adminLogin',
+      component: AdminLoginView
+    },
     // AFTER LOGIN
     {
       path: '/newRepair',
@@ -70,7 +71,7 @@ const router = createRouter({
     {
       path: '/asignedRepairs',
       name: 'asignedRepairs',
-      component: RepairPendingView,
+      component: RepairAsignedView,
       meta: {
         requiresAuth: true
       }
@@ -111,7 +112,6 @@ router.beforeEach((to, _, next) => {
     authStore.repairViewState = "asignedRepairs";
   }
   else if (to.name == "doneRepairs") {
-    debugger;
     authStore.repairViewState = "doneRepairs";
   }
   next()

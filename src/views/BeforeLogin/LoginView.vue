@@ -44,7 +44,7 @@ export default {
         this.authStore.login(token, email, id, rol)
         if( rol == "admin")
         {
-          this.$router.push('unasignedRepairs');
+          this.$router.push('adminLogin');
         }
         else
         {
