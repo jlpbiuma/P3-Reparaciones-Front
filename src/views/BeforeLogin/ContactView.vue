@@ -8,11 +8,9 @@
     <div class="row" >
         <div class="row w-100">
   <div class="col-lg-6 my-4">
-    <iframe 
-      src="https://www.google.com/maps/place/Bridge+to+Nowhere/@34.2833567,-117.7471725,20z/data=!4m5!3m4!1s0x80c322cfd9f1704f:0xd04401dc1101aa9c!8m2!3d34.283249!4d-117.7470737"
-      class="w-100" height="400" allowfullscreen="" loading="lazy"></iframe>
+    <img src="../../../images/nowhere.jpg" class="w-100" id="map" style="max-width:30vw;">
   </div>
-  <div class="col-lg-6 my-4 d-flex align-items-end">
+  <div class="col-lg-6 my-4 d-flex align-items-end" >
     <div>
       <h6>Find Us At</h6>
       <p>Nowhere St, LP 35400</p>
@@ -44,30 +42,7 @@
 </form>
 
 </div>
-<div class="card w-100" >
-    
-    <p class="card-text"><h4>&nbsp;Contact the Team on Github</h4></p>
-    <div class="card-group" >
 
-        <div class="card" id="team-profile" style="display:flex">
-        <a href="https://github.com/jlpbiuma">
-            <img src="../../../images/Jose Luis.jpg"  style=" width:10vw; border-radius: 10px;">
-            <p class="name"><strong> José Luis</strong></p>
-        </a></div>
-        <div class="card" id="team-profile" style="display:flex">
-        <a href="https://github.com/itsJosephV">
-            <img src="../../../images/Joseph.jpg"  style=" width:10vw; border-radius: 10px;">
-            <p class="name"><strong> Joseph</strong></p>
-        </a></div>
-
-        <div class="card" id="team-profile" style="display:flex"> 
-        <a href="https://github.com/VanesaMRP">
-            <img src="../../../images/Vanesa.jpg"  style=" width:10vw; border-radius: 10px;">
-            <p class="name"><strong> Vanesa</strong></p>
-        </a></div>
-        
-    </div>
-</div>
 </div>
 
 </template>
@@ -84,6 +59,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+#map{
+
+}
 .centered_text {
     margin-left:auto;
     margin-right:auto;

@@ -103,6 +103,11 @@ export default {
   overflow: scroll;
   text-align: justify;
 }
+#content::-webkit-scrollbar{
+  padding: 1rem;
+  max-height: 220px;
+  overflow-y: auto;
+}
 .card{
     border-color:  rgb(255, 255, 255);
     margin-bottom: 30px;
