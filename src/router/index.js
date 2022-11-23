@@ -111,7 +111,6 @@ router.beforeEach((to, _, next) => {
     authStore.repairViewState = "asignedRepairs";
   }
   else if (to.name == "doneRepairs") {
-    debugger;
     authStore.repairViewState = "doneRepairs";
   }
   next()

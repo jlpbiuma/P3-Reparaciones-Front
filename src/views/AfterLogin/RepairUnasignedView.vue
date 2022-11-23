@@ -23,6 +23,7 @@ export default {
     async created () {
         if (this.authStore.rol != "client")
         {
+            debugger;
             this.repairs = await API.getAllUnasignedRepairs(this.authStore.token)
         }
         else

@@ -16,6 +16,7 @@ async function login(newUser) {
 
 async function getAllUnasignedRepairs(token) {
   const response = await API.get(`/repairs/unasigned`, {headers: {token}})
+  console.log(response);
   return response.data;
 }
 
@@ -64,6 +65,10 @@ async function putUserProfile(userId, token) {
   return response.data;
 }
 
+async function putRepairToDone(repairId, token, repair) {
+  const response = await API.put(`/repairs/asigned/${repairId}`, {headers: { token }})
+}
+
 async function deleteUserprofile(userId, token) {
   const response = await API.delete(`/users/client/${userId}`, {headers: { token }})
   return response.data;
@@ -87,6 +92,7 @@ export default {
   postNewRepair,
   getUserProfile,
   putUserProfile,
+  putRepairToDone,
   deleteUserprofile,
   deleteRepair
 }
