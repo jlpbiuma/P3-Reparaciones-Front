@@ -7,19 +7,19 @@ import { useAuthStore } from '../stores/authStore'
     <nav id="reparationBar">
         <RouterLink to="/newRepair"><button>CREATE NEW Repair!</button></RouterLink>
         <RouterLink to="/unasignedRepairs" v-if="authStore.repairViewState == 'unasignedRepairs'" class="selected">
-            <button type="button" class="btn btn-outline-primary">Repairs</button>
+            <button type="button" class="btn">Repairs</button>
         </RouterLink>
         <RouterLink to="/unasignedRepairs" v-else>
             <button type="button" class="btn btn-outline-primary">Repairs</button>
         </RouterLink>
         <RouterLink to="/asignedRepairs" v-if="authStore.repairViewState == 'asignedRepairs'" class="selected">
-            <button type="button" class="btn btn-outline-primary">Pending</button>
+            <button type="button" class="btn">Pending</button>
         </RouterLink>
         <RouterLink to="/asignedRepairs" v-else>
             <button type="button" class="btn btn-outline-primary">Pending</button>
         </RouterLink>
         <RouterLink to="/doneRepairs" v-if="authStore.repairViewState == 'doneRepairs'" class="selected">
-            <button type="button" class="btn btn-outline-primary">History</button>
+            <button type="button" class="btn">History</button>
         </RouterLink>
         <RouterLink to="/doneRepairs" v-else>
             <button type="button" class="btn btn-outline-primary">History</button>
@@ -44,5 +44,8 @@ export default {
 }
 .selected {
     background-color: #0d6efd;
+   
+    border-radius: 8px;
 }
+
 </style> 
