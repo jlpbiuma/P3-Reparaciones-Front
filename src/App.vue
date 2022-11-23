@@ -1,19 +1,26 @@
 <script setup>
 // IMPORTAR AQUÍ TODOS LOS COMPONENTES QUE QUEREMOS FIJOS!!!
 import Navigationbar from './components/Navigationbar.vue';
-import {RouterView} from 'vue-router'
+import { RouterView } from 'vue-router'
+import Footer from './components/FooterBar.vue'
 </script>
 
 <template>
-  <header id="header">
-    <Navigationbar></Navigationbar>
-  </header>
-  <div id="main-view">
-    <RouterView />
+  <div class="screen">
+    <header id="header">
+      <Navigationbar></Navigationbar>
+    </header>
+
+    <div id="main-view">
+
+      <RouterView />
+
+    </div>
+    <div id="seetoken">{{ token }}ABCDEF</div>
+
+
+    <Footer></Footer>
   </div>
-  <footer id="footer">
-    <div>ABCDEF</div>
-  </footer>
 </template>
 
 <script>
@@ -26,17 +33,25 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#header {
-  h3,nav {
-    display: inline-block;
-    margin-right: 40px;
-  }
+.screen {
+  overflow-x: hidden;
+  overflow-y: auto;
 }
+
 #main-view {
-  background-color: aqua;
-  margin: 100px;
+  background-color: rgb(245, 245, 245);
+  padding: 100px;
 }
-#footer {
-  background-color: red;
+
+Footer {
+
+  background-color: rgb(32, 32, 32);
+  color: white;
+
+}
+
+#seetoken {
+  background-color: black;
+  color: white;
 }
 </style>

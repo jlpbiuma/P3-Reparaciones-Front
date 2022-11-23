@@ -5,14 +5,11 @@ import {RouterLink} from 'vue-router'
 <template>
     <nav id="reparationBar">
         <RouterLink to="/newRepair"><button>CREATE NEW Repair!</button></RouterLink>
-        <RouterLink to="/unasignedRepairs">Unasigned Repairs</RouterLink>
-        <RouterLink to="/asignedRepairs">Asigned Repairs</RouterLink>
-        <RouterLink to="/doneRepairs">Done Repairs</RouterLink>
+        <RouterLink to="/unasignedRepairs"><button type="button" class="btn btn-outline-primary">Repairs</button></RouterLink>
+        <RouterLink to="/asignedRepairs"><button type="button" class="btn btn-outline-primary">Pending</button></RouterLink>
+        <RouterLink to="/doneRepairs"><button type="button" class="btn btn-outline-primary">History</button></RouterLink>
     </nav>
 </template>
-
-
-
 
 <script>
 export default {
