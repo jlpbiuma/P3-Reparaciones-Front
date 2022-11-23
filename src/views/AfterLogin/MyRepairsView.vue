@@ -8,7 +8,7 @@ import RepairList from '../../components/RepairList.vue'
 
 <template>
   <ReparationBar></ReparationBar>
-  <RouterLink to="/newrepair"><button>CREATE NEW REPAIR</button></RouterLink>
+  <RouterLink to="/newrepair"><button type="button" class="btn btn-primary btn-sm">Create New Repair</button></RouterLink>
   <RouterView/>
 </template>
 
@@ -35,6 +35,11 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+.btn{
+  margin-top: 80px;
+}
+
 
 </style>

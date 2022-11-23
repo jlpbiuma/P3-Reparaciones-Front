@@ -17,9 +17,11 @@
             <h6 class="card-title">Issue:</h6>
             <h6 class="card-title">Self-Diagnosis:</h6>
             <h6 class="card-title">Enter Date:</h6>
-            <h6 v-if="estado === 'repairs'" class ="repairs">SE VE EL PENDING DE COLOR VERDE</h6>
-            <h6 v-if="estado === 'pending'" class="pending">SE VE EL PENDING DE COLOR ROJO</h6>
-            <h6 v-if="estado === 'history'" class="history">SE VE EL PENDING DE COLOR AZUL</h6>
+            <h6 class="card-title">Technician:</h6>
+            <h6 class="card-title">Pickup date:</h6>
+            <h6 class="card-title">Price:</h6>
+            <h6 class="card-title">Tech diagnosis:</h6>
+
         </div>
     </div>
 </template>
@@ -27,11 +29,6 @@
 <script>
 export default {
     props: {
-    },
-    data(){
-        return {
-            estado: "pending"
-        }
     }
 }
 </script>
@@ -39,14 +36,5 @@ export default {
 <style>
 .card{
     margin-top: 100px;
-}
-.repairs{
-    background-color: green;
-}
-.pending{
-    background-color: red;
-}
-.history{
-    background-color: blue;
 }
 </style>

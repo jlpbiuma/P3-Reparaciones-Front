@@ -2,7 +2,7 @@
 </script>
 
 <template>
-   <footer class="text-center text-white fixed-bottom" style=" width:100%;">
+  <footer class="text-center text-white fixed-bottom" style=" width:100%;">
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">

@@ -65,6 +65,7 @@ export default {
  background-color: rgb(41, 41, 41);
  border: 1px  rgb(29, 29, 29);
 }
+
 .btn:hover {
       background-color: rgb(82, 82, 82) !important;
       border: 1px  rgb(82, 82, 82);
