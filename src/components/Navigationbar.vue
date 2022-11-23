@@ -10,10 +10,10 @@ import { useAuthStore } from '../stores/authStore'
              <!-- LOGGED IN NAVITEMS -->
             <!--   <div v-else> -->
 
-<nav class="navbar fixed-top navbar-expand bg-dark" style="width:100%"  >
+<nav class="navbar fixed-top navbar-expand bg-dark" style="width:100%;"   >
   <div class="container-fluid">
     
-    <a class="navbar-brand" href="#"><RouterLink to="/">JVJ-REPAIRS</RouterLink></a>
+    <a class="navbar-brand" href="#"><RouterLink to="/"><img src="../../images/JVJ_REPAIRS.png" style="width:20vw; max-width: 200px"></RouterLink></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
