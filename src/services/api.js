@@ -45,7 +45,7 @@ async function getAllDoneRepairsByUserId(userId, token) {
 }
 
 async function putAsignToEmployee(userId, token) {
-  const response = await API.put(`/repairs/unasigned/${userId}`, {headers: {token}})
+  const response = await API.put(`/repairs/unasigned/${userId}`,{}, {headers: {token}})
   return response.data;
 }
 
@@ -60,7 +60,7 @@ async function getUserProfile(userId, token) {
 }
 
 async function putUserProfile(userId, token) {
-  const response = await API.put(`/users/client/${userId}`, {headers: { token }})
+  const response = await API.put(`/users/client/${userId}`,{}, {headers: { token }})
   return response.data;
 }
 
