@@ -45,7 +45,7 @@ import { useAuthStore } from '../stores/authStore'
           <div v-else class="d-flex">
             <li class="nav-item ">
               <a class="nav-link" href="#" role="button" aria-expanded="false">
-                <RouterLink to="/myrepairs">My repairs</RouterLink>
+                <RouterLink to="/unasignedRepairs">My repairs</RouterLink>
               </a>
             </li>
             <li class="nav-item">
