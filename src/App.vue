@@ -10,15 +10,9 @@ import Footer from './components/FooterBar.vue'
     <header id="header">
       <Navigationbar></Navigationbar>
     </header>
-
     <div id="main-view">
-
       <RouterView />
-
     </div>
-    <div id="seetoken">{{ token }}ABCDEF</div>
-
-
     <Footer></Footer>
   </div>
 </template>
@@ -54,4 +48,5 @@ Footer {
   background-color: black;
   color: white;
 }
+
 </style>
