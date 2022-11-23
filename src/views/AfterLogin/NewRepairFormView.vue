@@ -59,7 +59,7 @@ form{
 }
 
 .form-control:focus {
-        border-color: #28a745;
+        border-color: #2b6cef;
         box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
     } 
 .form-group-input{
