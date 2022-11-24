@@ -24,6 +24,9 @@ import { useAuthStore } from '../stores/authStore'
         <RouterLink to="/doneRepairs" v-else>
             <button type="button" class="btn btn-outline-primary">History</button>
         </RouterLink>
+        <RouterLink v-if="authStore.rol == 'admin'" to="/shitfs">
+            <button type="button" class="btn btn-outline-primary">See shifts</button>
+        </RouterLink>
     </nav>
 </template>
 

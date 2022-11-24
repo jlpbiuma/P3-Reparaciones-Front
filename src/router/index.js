@@ -20,6 +20,7 @@ import RepairDoneView from '../views/AfterLogin/RepairDoneView.vue'
 import RepairPendingView from '../views/AfterLogin/RepairAsignedView.vue'
 import RepairUnasignedView from '../views/AfterLogin/RepairUnasignedView.vue'
 import ProfileView from '../views/AfterLogin/ProfileView.vue'
+import ShiftsView from '../views/AfterLogin/ShiftsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -87,6 +88,11 @@ const router = createRouter({
       path: '/profile',
       name: 'profile',
       component: ProfileView
+    },
+    {
+      path: '/shitfs',
+      name: 'shifts',
+      component: ShiftsView
     }
   ]
 })
