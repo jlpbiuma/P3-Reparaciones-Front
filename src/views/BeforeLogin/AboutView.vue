@@ -31,7 +31,7 @@
         <div class="card-group">
             <div class="card" id="team-profile">
                 <a href="https://github.com/jlpbiuma">
-                    <img src="../../../images/Jose Luis.jpg" style=" width:10vw; border-radius: 10px;">
+                    <img src="../../../images/Jose-Luis.jpg" style=" width:10vw; border-radius: 10px;">
                     <p style="text-align:center" class="name"><strong> JosÃ© Luis</strong></p>
                 </a>
             </div>
