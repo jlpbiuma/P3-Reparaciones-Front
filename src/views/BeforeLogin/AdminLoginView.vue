@@ -11,7 +11,6 @@
                 <span v-else>Close Camera</span>
             </button>
         </div>
-
         <div v-show="isCameraOpen && isLoading" class="camera-loading">
             <ul class="loader-circle">
                 <li></li>
@@ -19,29 +18,22 @@
                 <li></li>
             </ul>
         </div>
-
         <div v-if="isCameraOpen" v-show="!isLoading" class="camera-box" :class="{ 'flash': isShotPhoto }">
-
             <div class="camera-shutter" :class="{ 'flash': isShotPhoto }"></div>
-
             <video v-show="!isPhotoTaken" ref="camera" :width="450" :height="337.5" autoplay></video>
-
             <canvas v-show="isPhotoTaken" id="photoTaken" ref="canvas" :width="450" :height="337.5"></canvas>
         </div>
-
         <div v-if="isCameraOpen && !isLoading" class="camera-shoot">
             <button type="button" class="button" @click="takePhoto">
                 <img src="https://img.icons8.com/material-outlined/50/000000/camera--v2.png">
             </button>
         </div>
-
         <div v-if="isPhotoTaken && isCameraOpen" class="camera-download">
             <a id="downloadPhoto" download="my-photo.jpg" class="button" role="button" @click="downloadImage">
                 Download
             </a>
         </div>
     </div>
-
 </template>
 
 <script>
