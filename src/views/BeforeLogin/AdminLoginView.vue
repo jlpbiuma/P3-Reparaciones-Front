@@ -57,7 +57,15 @@ export default({
             link: '#'
         }
     },
-
+    async created() {
+        debugger;
+        Promise.all([
+            faceapi.nets.tinyFaceDetector.loadFromUri('../models'),
+            faceapi.nets.faceLandmark68Net.loadFromUri('../models'),
+            faceapi.nets.faceRecognitionNet.loadFromUri('../models'),
+            faceapi.nets.faceExpressionNet.loadFromUri('../models')
+        ]).then(startVideo)
+    },  
     methods: {
         toggleCamera() {
             if (this.isCameraOpen) {
@@ -92,25 +100,6 @@ export default({
             tracks.forEach(track => { 
                 track.stop(); // DETIENE TODAS LAS GRABACIONES
             });
-        },
-        takePhoto() {
-            debugger;
-            if (!this.isPhotoTaken) {
-                this.isShotPhoto = true;
-                const FLASH_TIMEOUT = 50;
-                setTimeout(() => {
-                    this.isShotPhoto = false;
-                }, FLASH_TIMEOUT);
-            }
-            this.isPhotoTaken = !this.isPhotoTaken;
-            const context = this.$refs.canvas.getContext('2d');
-            context.drawImage(this.$refs.camera, 0, 0, 450, 337.5);
-        },
-        downloadImage() {
-            const download = document.getElementById("downloadPhoto");
-            const canvas = document.getElementById("photoTaken").toDataURL("image/jpeg")
-                .replace("image/jpeg", "image/octet-stream");
-            download.setAttribute("href", canvas);
         }
     }
 });
