@@ -36,24 +36,8 @@ import RepairAsignedFormToDoneView from './RepairToDoneForm.vue';
                     <RepairAsignedFormToDoneView :repair="repair"></RepairAsignedFormToDoneView>
                 </div>
             </div>
-        </div>
-
+        </div>      
     </div>
-    <!-- <div>
-        DISPOSITIVO: {{repair.device}}
-    </div>
-    <div>
-        PROBLEMA: {{repair.issue}}
-    </div>
-    < AUTODIAGNÓSTICO: {{repair.selfdiagnosis}}
-    </div>
-    <div>
-        CLIENT: {{}}
-    </div> -->
-    <div>
-        
-    </div>
-
 </template>
 
 <script>
@@ -68,16 +52,12 @@ export default {
     props: ['repair'],
     methods: {
         async deleteRepair() {
-            this.disable = false;
-            console.log(this.authStore.rol, this.authStore.repairViewState)
+            this.disable = true;
             const response = await API.deleteRepair(this.repair._id, this.authStore.token)
-            console.log("Objeto eleminado: ", response);
         },
         async asignRepair() {
-            console.log(this.repair._id)
-            console.log(this.authStore.token)
+            this.disable = true;
             const response = await API.putAsignToEmployee(this.repair._id, this.authStore.id, this.authStore.token)
-            console.log("Objeto asignado", response);
         },
         async activateForm() {
             this.form = !this.form;

@@ -60,8 +60,8 @@ async function getUserProfile(userId, token) {
   return response.data;
 }
 
-async function putUserProfile(userId, token) {
-  const response = await API.put(`/users/client/${userId}`,{}, {headers: { token }})
+async function putUserProfile(userId, object, token) {
+  const response = await API.put(`/users/client/${userId}`,object, {headers: { token }})
   return response.data;
 }
 

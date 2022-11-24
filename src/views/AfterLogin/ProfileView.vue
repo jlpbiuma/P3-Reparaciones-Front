@@ -1,5 +1,4 @@
 <script setup>
-import {RouterView} from 'vue-router'
 import API from '../../services/api'
 import { useAuthStore } from '../../stores/authStore'
 import ProfileCard from '../../components/ProfileCard.vue'
@@ -18,7 +17,6 @@ export default {
         }
     },
     async created() {
-        debugger;
         const response = await API.getUserProfile(this.authStore.userId, this.authStore.token)
         console.log(response);
         this.profile = response;
