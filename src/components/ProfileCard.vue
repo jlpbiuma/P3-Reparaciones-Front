@@ -1,5 +1,7 @@
 <script setup>
 import EditUserProfile from './EditUserProfile.vue';
+import {DialogWrapper, openDialog} from 'vue3-promise-dialog'
+import Popup from './Popup.vue';
 </script>
 
 <template>
@@ -39,6 +41,10 @@ import EditUserProfile from './EditUserProfile.vue';
                 <EditUserProfile :index="index" @change-information="changeInformation"></EditUserProfile>
             </div>
         </div>
+        <button @click="deleteProfile">Delete profile</button>
+        <Popup v-if="showDelete" @close-popup="respuestaPopUp">
+
+        </Popup>
     </div>
 </template>
 
@@ -48,7 +54,8 @@ export default {
         return {
             editProfileButtonMessage: ["Change my ","Change my ","Change my ","Change my ","Change my "],
             showForm: [false, false, false, false, false, false],
-            index: 0
+            index: 0,
+            showDelete: false
         }
     },
     props: ["profile"],
@@ -100,7 +107,14 @@ export default {
             }
         },
         async deleteProfile() {
-
+            this.showDelete = !this.showDelete
+        },
+        async respuestaPopUp(borrado) {
+            debugger;
+            this.showDelete = !this.showDelete
+            if(borrado) {
+                this.$emit("home")
+            }
         }
     }
 }

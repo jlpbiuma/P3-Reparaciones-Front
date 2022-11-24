@@ -5,7 +5,7 @@ import ProfileCard from '../../components/ProfileCard.vue'
 </script>
 
 <template>
-    <ProfileCard :profile="profile"></ProfileCard>
+    <ProfileCard :profile="profile" @home="home"></ProfileCard>
 </template>
 
 <script>
@@ -20,6 +20,12 @@ export default {
         const response = await API.getUserProfile(this.authStore.userId, this.authStore.token)
         console.log(response);
         this.profile = response;
+    },
+    methods: {
+        home() {
+            this.authStore.logout()
+            this.$router.push({name: 'home'});
+        }
     }
 };
 </script>
