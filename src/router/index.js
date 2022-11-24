@@ -13,11 +13,6 @@ import SignupAdminView from '../views/BeforeLogin/SignupAdminView.vue'
 // AFTER LOGIN
 import RepairView from '../views/AfterLogin/RepairUnasignedView.vue'
 import NewRepairView from '../views/AfterLogin/NewRepairView.vue'
-/*
-import HistoryRepView from '../views/AfterLogin/HistoryRepView.vue'
-import MyRepairsView from '../views/AfterLogin/MyRepairsView.vue'
-import PendingView from '../views/AfterLogin/PendingView.vue'
-*/
 import RepairDoneView from '../views/AfterLogin/RepairDoneView.vue'
 import RepairPendingView from '../views/AfterLogin/RepairAsignedView.vue'
 import RepairUnasignedView from '../views/AfterLogin/RepairUnasignedView.vue'
