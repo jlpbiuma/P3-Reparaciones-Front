@@ -3,21 +3,22 @@ import {RouterLink} from 'vue-router'
 </script>
 
 <template>
-    <div class="row">
+    <div class="row" >
   <div class="w-100" >
     <div class="card">
-      <div class="card-body d-flex flex-column" >
+      <div class="card-body d-flex flex-column">
         <h1 class="card-title ">WELCOME TO JVJ-REPAIRS!</h1>
         <p class="card-text"><h3 id="slogan">We solve problems</h3></p>
         <div class="row-sm img-right">
         <img  class="img" style="width: 45vw; float: right"  src="../../../images/devices.png">
         </div>
-        <a href="#" class="btn align-self-center"><RouterLink to="/signup">GET STARTED!</RouterLink></a>
+        <a href="#" class="btn align-self-center"><RouterLink to="/signup"><b>GET STARTED!</b></RouterLink></a>
       </div>
     </div>
   </div>
-  <div class="col-sm-6" style="max-height:80vw">
-    <div class="card w-100" style="max-height:82vw" id="news">
+  <div class="row" style="margin-bottom:200px; height:80vw;">
+  <div class="col-sm-6" >
+    <div class="card w-100" id="news" style="height:80vw">
       <div class="card-body d-flex flex-column" >
         <p class="card-text"><h3>News</h3></p>
         <p class="card-text"><h5>Apple and Google face gaming and mobile browser probe</h5></p>
@@ -44,34 +45,33 @@ import {RouterLink} from 'vue-router'
     </div>
   </div>
   
-  <div class="col-sm-6" style="max-height:80vw">
-    <div class="card w-100" id="content" style="max-height:40vw" >
-      <div class="card-body d-flex flex-column">
-        <p class="card-text"><h4>SOME CONTENT</h4></p>
+  <div class="col-sm-6" style="height:80vw">
+    <div class="card w-100" id="content" style="height:40vw" >
+      <div class="card-body d-flex flex-column" >
+        <p class="card-text"><h4>Easy and simple</h4></p>
         <div class="row-sm ">
-          <p >"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
-            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
-            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-        <img  class="img" style="width: 20vw; float: right"  src="">
-        </div>
+          <img src="../../../images/happy-customer.jpg" style="width: 100%">
+          
+          <p style="text-align:justify; margin-top:10px ">If you have any electronic devices in need of repair,  
+            we can provide an optimal solution.</p>
+            <RouterLink to="/about"> <button>Learn More</button></RouterLink>     
+          </div>
       </div>
   </div>
-    <div class="card w-100" >
-      <div class="card-body d-flex flex-column" style="max-height:40vw">
+    <div class="card w-100" style="height:38vw">
+      <div class="card-body d-flex flex-column" id="app" >
         <p class="card-text"><h3>Download our APP</h3></p>
         <div class="row-sm img-right">
         <img  class="img" style="width: 20vw; float: right"  src="../../../images/app.png">
-        </div>
         <div class=" align-self-center">
         <button id="appbutton"><img  style="width:10vw" src="../../../images/apple.png"></button>
         <button id="appbutton"><img  style="width:10vw" src="../../../images/android.png" ></button>
       </div>
       </div>
+      </div>
     </div>
   </div>
+</div>
 </div>
 
 </template>
@@ -88,9 +88,29 @@ export default {
 </script>
 
 <style scoped >
+.card{
+    margin:20px;
+}
+#app{
+  margin-top:20px;
+ 
+}
+button{
+  background-color:  rgb(41, 41, 41);
+  border: 1px  rgb(29, 29, 29);
+  border-radius: 5px;
+  color: white;
+}
+button:hover{
+  color: rgb(255, 145, 0) ;
+  background-color: rgb(0, 0, 0);
+      border: 1px  rgb(0, 0, 0);
+}
+
 #news{
   overflow: scroll;
   text-align: justify;
+ 
 }
 #news::-webkit-scrollbar{
   padding: 1rem;
@@ -100,26 +120,29 @@ export default {
 #content{
   background-color: rgb(245, 245, 245);
   border-color:  rgb(245, 245, 245);
-  overflow: scroll;
+  overflow:scroll;
   text-align: justify;
+  height: 40vw;
+  margin-bottom:0px;
+  border-color: white;
 }
 #content::-webkit-scrollbar{
-  padding: 1rem;
+ 
   max-height: 220px;
   overflow-y: auto;
 }
 .card{
     border-color:  rgb(255, 255, 255);
-    margin-bottom: 30px;
 }
 .btn{
- background-color: rgb(41, 41, 41);
- border: 1px  rgb(29, 29, 29);
+background-color: rgb(255, 136, 0);
+ border: 1px  rgb(255, 136, 0);
 }
 
 .btn:hover {
-      background-color: rgb(82, 82, 82);
-      border: 1px  rgb(82, 82, 82);
+  color: rgb(255, 145, 0) ;
+  background-color: rgb(0, 0, 0);
+  border: 3px  rgb(0, 0, 0);
     }
  #appbutton{
   background-color: white;

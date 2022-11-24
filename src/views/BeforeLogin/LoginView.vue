@@ -64,4 +64,15 @@ export default {
     margin-top: 10px;
   }
 }
+button{
+  margin-top: 30px;
+  background-color:  rgb(41, 41, 41);
+  border: 1px  rgb(29, 29, 29);
+  color: white;
+}
+button:hover{
+  color: rgb(255, 145, 0) ;
+  background-color: rgb(82, 82, 82);
+      border: 1px  rgb(82, 82, 82);
+}
 </style>

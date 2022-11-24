@@ -8,7 +8,7 @@
             <div class="card w-100" style="display:flex" id="topcards">
                 <img class="card-img-top" src="../../../images/profesional.png" style="width:20vw; align-self: center;">
                 <div class="card-body" style="align-self: center">
-                    <p style="text-align:center">The JVJ team is conformed by highly qualified technicians.</p>
+                    <p style="text-align:center">The JVJ team is conformed by highly <b>qualified</b> technicians.</p>
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-    <div class="card w-100" style="display:flex">
+    <div id="profiles" class="card w-100" style="display:flex">
         <div class="card-body" style="align-self: center">
             <p style="text-align:center">
             <h4>&nbsp;Contact us on Github</h4>
@@ -32,7 +32,7 @@
             <div class="card" id="team-profile">
                 <a href="https://github.com/jlpbiuma">
                     <img src="../../../images/Jose Luis.jpg" style=" width:10vw; border-radius: 10px;">
-                    <p style="text-align:center" class="name"><strong> José Luis</strong></p>
+                    <p style="text-align:center" class="name"><strong> JosÃ© Luis</strong></p>
                 </a>
             </div>
             <div class="card" id="team-profile" style="display:flex">
@@ -64,7 +64,7 @@ export default {
 
 <style scoped lang="scss">
 #top {
-    margin-top: 5vw;
+
     margin-bottom: 5vw;
     ;
 
@@ -92,5 +92,10 @@ a:hover {
     border-color: rgb(255, 255, 255);
     justify-content: center;
     align-items: center;
+    margin-top: 0;
+}
+
+#profiles {
+    margin-top: 0px;
 }
 </style>
