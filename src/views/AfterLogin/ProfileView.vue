@@ -1,20 +1,27 @@
 <script setup>
 import {RouterView} from 'vue-router'
 import API from '../../services/api'
-import ReparationBar from '../../components/Reparationbar.vue'
+import { useAuthStore } from '../../stores/authStore'
+import ProfileCard from '../../components/ProfileCard.vue'
 </script>
 
 <template>
-    <h3>THIS IS YOUR PROFILE</h3>
+    <ProfileCard :profile="profile"></ProfileCard>
 </template>
 
 <script>
 export default {
     data() {
         return {
+            authStore: useAuthStore(),
+            profile: {}
         }
     },
-    methods: {
+    async created() {
+        debugger;
+        const response = await API.getUserProfile(this.authStore.userId, this.authStore.token)
+        console.log(response);
+        this.profile = response;
     }
 };
 </script>
