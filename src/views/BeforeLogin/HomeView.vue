@@ -12,7 +12,7 @@ import {RouterLink} from 'vue-router'
         <div class="row-sm img-right">
         <img  class="img" style="width: 45vw; float: right"  src="../../../images/devices.png">
         </div>
-        <a href="#" class="btn align-self-center"><RouterLink to="/signup">GET STARTED!</RouterLink></a>
+        <a href="#" class="btn align-self-center"><RouterLink to="/signup"><b>GET STARTED!</b></RouterLink></a>
       </div>
     </div>
   </div>
@@ -103,8 +103,8 @@ button{
 }
 button:hover{
   color: rgb(255, 145, 0) ;
-  background-color: rgb(82, 82, 82);
-      border: 1px  rgb(82, 82, 82);
+  background-color: rgb(0, 0, 0);
+      border: 1px  rgb(0, 0, 0);
 }
 
 #news{
@@ -135,13 +135,14 @@ button:hover{
     border-color:  rgb(255, 255, 255);
 }
 .btn{
- background-color: rgb(41, 41, 41);
- border: 1px  rgb(29, 29, 29);
+background-color: rgb(255, 136, 0);
+ border: 1px  rgb(255, 136, 0);
 }
 
 .btn:hover {
-      background-color: rgb(82, 82, 82);
-      border: 1px  rgb(82, 82, 82);
+  color: rgb(255, 145, 0) ;
+  background-color: rgb(0, 0, 0);
+  border: 3px  rgb(0, 0, 0);
     }
  #appbutton{
   background-color: white;

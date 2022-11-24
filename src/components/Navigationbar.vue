@@ -9,7 +9,7 @@ import { useAuthStore } from '../stores/authStore'
   <!--  <div v-if="!authStore.isLoggedIn"> -->
   <!-- LOGGED IN NAVITEMS -->
   <!--   <div v-else> -->
-
+ 
   <nav class="navbar fixed-top navbar-expand bg-dark" style="width:100%;">
     <div class="container-fluid">
 
@@ -32,20 +32,20 @@ import { useAuthStore } from '../stores/authStore'
               <RouterLink to="/about">About</RouterLink>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#" role="button">
-              <RouterLink to="/signup">Sign Up</RouterLink>
-            </a>
-          </li>
           <li class="nav-item" v-if="!authStore.isLoggedIn">
             <a class="nav-link active" href="#" role="button">
-              <RouterLink to="/login">Login</RouterLink>
+              <RouterLink to="/signup"><button id="btn">Sign Up</button></RouterLink>
+            </a>
+          </li>
+          <li class="nav-item" v-if="!authStore.isLoggedIn" >
+            <a class="nav-link active" href="#" role="button">
+              <RouterLink to="/login"><button id="btn">Login</button></RouterLink>
             </a>
           </li>
           <div v-else class="d-flex">
             <li class="nav-item ">
               <a class="nav-link" href="#" role="button" aria-expanded="false">
-                <RouterLink to="/unasignedRepairs">My repairs</RouterLink>
+               <RouterLink to="/unasignedRepairs">My repairs</RouterLink>
               </a>
             </li>
             <li class="nav-item">
@@ -57,13 +57,14 @@ import { useAuthStore } from '../stores/authStore'
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"> <button @click="logout">Logout</button></a>
+              <a class="nav-link active" aria-current="page" href="#"> <button id="btn" @click="logout">Logout</button></a>
             </li>
           </div>
           </ul>
       </div>
     </div>
   </nav>
+  
 </template>
 
 <script>
@@ -83,6 +84,22 @@ export default {
 </script>
 
 <style scoped>
+#btn{
+  background-color: rgb(255, 136, 0);
+  border-color:  rgb(255, 136, 0);
+  color:white;
+}
+#btn:hover{
+  background-color: rgb(255, 196, 0);
+  border-color:  rgb(255, 174, 0);
+  color: black;
+
+}
+
+#log{
+  justify-content: flex-end;
+}
+
 nav {
   display: flex;
   flex-wrap: wrap;
