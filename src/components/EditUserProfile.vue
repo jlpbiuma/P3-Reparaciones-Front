@@ -37,7 +37,6 @@ export default {
                     response = await API.putUserProfile(this.authStore.id,{phone:this.modifiedInfo}, this.authStore.token)
                     break;
             }
-            console.log(response)
         }
     }
 }

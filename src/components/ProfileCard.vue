@@ -110,7 +110,6 @@ export default {
             this.showDelete = !this.showDelete
         },
         async respuestaPopUp(borrado) {
-            debugger;
             this.showDelete = !this.showDelete
             if(borrado) {
                 this.$emit("home")

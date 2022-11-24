@@ -117,14 +117,10 @@ const router = createRouter({
 // ADD NEW ROUTE CHECKROL WITH GET BACKEND
 router.beforeEach((to, _, next) => {
   const authStore = useAuthStore()
-  // Si la ruta a donde quiero ir necesita autenticación
-  // ... y no tengo el token, llévame a la pagina de login
-  debugger;
   if (to.meta.requiresAuth && !authStore.isLoggedIn) {
     next({ name: 'login' })
   }
   else if (to.meta.requiresAdmin && authStore.rol != "admin") {
-    
     next({ name: 'login'})
   }
   else {

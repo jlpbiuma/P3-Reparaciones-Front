@@ -31,7 +31,6 @@ async function getInfoFromEmployeeID(userId, token) {
 
 async function getAllUnasignedRepairs(token) {
   const response = await API.get(`/repairs/unasigned`, {headers: {token}})
-  console.log(response);
   return response.data;
 }
 
