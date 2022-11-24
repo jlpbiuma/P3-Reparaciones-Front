@@ -101,7 +101,7 @@ export default {
 <style scoped lang="scss">
 .form {
   padding: 15px;
-  background-color: rgb(224, 233, 237);
+  background-color: rgb(218, 218, 218);
   label {
     display: block;
     padding: 5px;
@@ -110,6 +110,18 @@ export default {
 }
 .form-control{
   width: 300px;
+}
+
+button{
+  margin-top: 30px;
+  background-color:  rgb(41, 41, 41);
+  border: 1px  rgb(29, 29, 29);
+  color: white;
+}
+button:hover{
+  color: rgb(255, 145, 0) ;
+  background-color: rgb(82, 82, 82);
+      border: 1px  rgb(82, 82, 82);
 }
 </style>
 

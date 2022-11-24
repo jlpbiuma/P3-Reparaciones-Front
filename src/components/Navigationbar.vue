@@ -34,7 +34,7 @@ import { useAuthStore } from '../stores/authStore'
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="#" role="button">
-              <RouterLink to="/signup">Get started</RouterLink>
+              <RouterLink to="/signup">Sign Up</RouterLink>
             </a>
           </li>
           <li class="nav-item" v-if="!authStore.isLoggedIn">

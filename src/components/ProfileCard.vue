@@ -3,6 +3,7 @@
 </script>
 
 <template>
+ 
     <div class="page-content page-container" id="page-content">
         <div class="padding">
             <div class="row container d-flex justify-content-center">
@@ -72,9 +73,6 @@ export default {
 #name{
     font-size: larger;
 }
-.text-muted {
-    color: #919aa3 ;
-}
 
 .padding {
     padding: 3rem;
@@ -87,9 +85,7 @@ export default {
     border: none;
     margin-bottom: 30px;
 }
-.b-b-default {
-    border-bottom: 2px solid #e0e0e0;
-}
+
 .m-r-0 {
     margin-right: 0px;
 }
@@ -104,18 +100,27 @@ export default {
 
 .bg-c-lite-green {
         background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
-    background: linear-gradient(to right, #ff8843, #fcc44a);
+    background: linear-gradient(to right, #ff8045, #ffe868);
 }
 
 .user-profile {
     padding: 20px 0;
 }
 
+.card-block {
+    padding: 1.25rem;
+}
 
 .m-b-25 {
     margin-bottom: 25px;
 }
 
+.img-radius {
+    border-radius: 5px;
+}
+
+
+ 
 h6 {
     font-size: 14px;
 }
@@ -124,8 +129,22 @@ h6 {
     line-height: 25px;
 }
 
+@media only screen and (min-width: 1400px){
+p {
+    font-size: 14px;
+}
+}
+
 .card-block {
     padding: 1.25rem;
+}
+
+.b-b-default {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.m-b-20 {
+    margin-bottom: 20px;
 }
 
 .p-b-5 {
@@ -138,6 +157,14 @@ h6 {
 
 .m-b-10 {
     margin-bottom: 10px;
+}
+
+.text-muted {
+    color: #919aa3 !important;
+}
+
+.b-b-default {
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .f-w-600 {
@@ -174,5 +201,7 @@ h6 {
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
+
+
 
 </style>
