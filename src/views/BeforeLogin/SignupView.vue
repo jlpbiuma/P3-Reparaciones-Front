@@ -84,6 +84,11 @@ export default {
   },
   methods: {
     async signupUser() {
+      this.newUser.name = this.newUser.name.trim();
+      this.newUser.dni = this.newUser.dni.trim();
+      this.newUser.email = this.newUser.email.trim();
+      this.newUser.password = this.newUser.password.trim();
+      this.newUser.phone = this.newUser.phone.trim();
       const response = await API.signup(this.newUser)
       if (response.error) {
         alert('Error creating account')

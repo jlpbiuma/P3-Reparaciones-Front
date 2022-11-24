@@ -7,6 +7,8 @@ import ContactView from '../views/BeforeLogin/ContactView.vue'
 import HomeView from '../views/BeforeLogin/HomeView.vue'
 import LoginView from '../views/BeforeLogin/LoginView.vue'
 import SignupView from '../views/BeforeLogin/SignupView.vue'
+import SignupEmployeeView from '../views/BeforeLogin/SignupEmployeeView.vue'
+import SignupAdminView from '../views/BeforeLogin/SignupAdminView.vue'
 
 // AFTER LOGIN
 import RepairView from '../views/AfterLogin/RepairUnasignedView.vue'
@@ -50,6 +52,22 @@ const router = createRouter({
       path: '/signup',
       name: 'signup',
       component: SignupView
+    },
+    {
+      path: '/signupEmployee',
+      name: 'signupEmployee',
+      component: SignupEmployeeView,
+      meta: {
+        requiresAdmin: true
+      }
+    },
+    {
+      path: '/signupAdmin',
+      name: 'signupAdmin',
+      component: SignupAdminView,
+      meta: {
+        requiresAdmin: true
+      }
     },
     // AFTER LOGIN
     {
@@ -101,9 +119,15 @@ router.beforeEach((to, _, next) => {
   const authStore = useAuthStore()
   // Si la ruta a donde quiero ir necesita autenticación
   // ... y no tengo el token, llévame a la pagina de login
+  debugger;
   if (to.meta.requiresAuth && !authStore.isLoggedIn) {
     next({ name: 'login' })
-  } else {
+  }
+  else if (to.meta.requiresAdmin && authStore.rol != "admin") {
+    
+    next({ name: 'login'})
+  }
+  else {
     next()
   }
 })
