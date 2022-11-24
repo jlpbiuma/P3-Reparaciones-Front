@@ -32,7 +32,7 @@
             <div class="card" id="team-profile">
                 <a href="https://github.com/jlpbiuma">
                     <img src="../../../images/Jose-Luis.jpg" style=" width:10vw; border-radius: 10px;">
-                    <p style="text-align:center" class="name"><strong> JosÃ© Luis</strong></p>
+                    <p style="text-align:center" class="name"><strong> José Luis</strong></p>
                 </a>
             </div>
             <div class="card" id="team-profile" style="display:flex">
