@@ -11,13 +11,8 @@ import SignupEmployeeView from '../views/BeforeLogin/SignupEmployeeView.vue'
 import SignupAdminView from '../views/BeforeLogin/SignupAdminView.vue'
 
 // AFTER LOGIN
-import RepairView from '../views/AfterLogin/RepairUnasignedView.vue'
+import AdminLoginView from '../views/BeforeLogin/AdminLoginView.vue'
 import NewRepairView from '../views/AfterLogin/NewRepairView.vue'
-/*
-import HistoryRepView from '../views/AfterLogin/HistoryRepView.vue'
-import MyRepairsView from '../views/AfterLogin/MyRepairsView.vue'
-import PendingView from '../views/AfterLogin/PendingView.vue'
-*/
 import RepairDoneView from '../views/AfterLogin/RepairDoneView.vue'
 import RepairPendingView from '../views/AfterLogin/RepairAsignedView.vue'
 import RepairUnasignedView from '../views/AfterLogin/RepairUnasignedView.vue'
@@ -71,6 +66,14 @@ const router = createRouter({
     },
     // AFTER LOGIN
     {
+      path: '/adminLogin',
+      name: 'adminlogin',
+      component: AdminLoginView,
+      meta: {
+        requiresAdmin: true
+      }
+    },
+    {
       path: '/newRepair',
       name: 'newRepair',
       component: NewRepairView,
@@ -117,14 +120,10 @@ const router = createRouter({
 // ADD NEW ROUTE CHECKROL WITH GET BACKEND
 router.beforeEach((to, _, next) => {
   const authStore = useAuthStore()
-  // Si la ruta a donde quiero ir necesita autenticación
-  // ... y no tengo el token, llévame a la pagina de login
-  debugger;
   if (to.meta.requiresAuth && !authStore.isLoggedIn) {
     next({ name: 'login' })
   }
   else if (to.meta.requiresAdmin && authStore.rol != "admin") {
-    
     next({ name: 'login'})
   }
   else {

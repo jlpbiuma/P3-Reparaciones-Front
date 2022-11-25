@@ -18,7 +18,6 @@ export default {
     },
     async created() {
         const response = await API.getUserProfile(this.authStore.userId, this.authStore.token)
-        console.log(response);
         this.profile = response;
     },
     methods: {

@@ -88,6 +88,7 @@ a:hover{
     background-color:rgb(41, 41, 41);
     border: 1px  rgb(82, 82, 82);
     margin-bottom: 50px;
+    height: auto;
 }
 #submitbtn:hover{
     background-color: rgb(82, 82, 82);

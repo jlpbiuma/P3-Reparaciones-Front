@@ -63,15 +63,15 @@ import {RouterLink} from 'vue-router'
         <p class="card-text"><h3>Download our APP</h3></p>
         <div class="row-sm img-right">
         <img  class="img" style="width: 20vw; float: right"  src="../../../images/app.png">
+      </div>
         <div class=" align-self-center">
         <button id="appbutton"><img  style="width:10vw" src="../../../images/apple.png"></button>
         <button id="appbutton"><img  style="width:10vw" src="../../../images/android.png" ></button>
       </div>
-      </div>
+    </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 
 </template>
@@ -92,7 +92,7 @@ export default {
     margin:20px;
 }
 #app{
-  margin-top:20px;
+  margin-top: 0;
  
 }
 button{

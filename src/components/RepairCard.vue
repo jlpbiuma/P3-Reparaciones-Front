@@ -5,8 +5,8 @@ import RepairAsignedFormToDoneView from './RepairToDoneForm.vue';
 </script>
 
 <template>
-    <div v-if="!disable" class="card border-primary mb-3" style="max-width: 18rem;">
-        <div class="card-header text-primary">Pending</div>
+    <div v-if="!disable" class="card border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header text-dark">Pending</div>
         <div class="card-body">
             <div>
                 <h6 class="card-title mb-1">Device:</h6>

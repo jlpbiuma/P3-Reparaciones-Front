@@ -32,7 +32,7 @@ export default {
 body, html{
   padding: 0;
   margin: 0;
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
 }
 body {
@@ -40,12 +40,13 @@ body {
 }
 .screen {
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
 
 }
 #main-view {
   background-color: rgb(245, 245, 245);
   padding: 100px;
+  margin:0;
   
 }
 

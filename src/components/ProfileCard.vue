@@ -1,11 +1,54 @@
 <script setup>
 import EditUserProfile from './EditUserProfile.vue';
-import {DialogWrapper, openDialog} from 'vue3-promise-dialog'
+import { DialogWrapper, openDialog } from 'vue3-promise-dialog'
 import Popup from './Popup.vue';
 </script>
 
 <template>
+    <!-- Write your comments here 
+    <div id="containerProfile">
+        <div id="name">
+            {{ profile.name }}
+            <button @click="changeProfileInfo" id="nameButton">{{ editProfileButtonMessage[0] }}name</button>
+            <div v-if="showForm[0]">
+                <EditUserProfile :index="index" @change-information="changeInformation"></EditUserProfile>
+            </div>
+        </div>
+        <div id="rol">
+            {{ profile.rol }}
+            <button @click="changeProfileInfo" id="rolButton">{{ editProfileButtonMessage[1] }}rol</button>
+            <div v-if="showForm[1]">
+                <EditUserProfile :index="index" @change-information="changeInformation"></EditUserProfile>
+            </div>
+        </div>
+        <div id="dni">
+            {{ profile.dni }}
+            <button @click="changeProfileInfo" id="dniButton">{{ editProfileButtonMessage[2] }}dni</button>
+            <div v-if="showForm[2]">
+                <EditUserProfile :index="index" @change-information="changeInformation"></EditUserProfile>
+            </div>
+        </div>
+        <div id="email">
+            {{ profile.email }}
+            <button @click="changeProfileInfo" id="emailButton">{{ editProfileButtonMessage[3] }}email</button>
+            <div v-if="showForm[3]">
+                <EditUserProfile :index="index" @change-information="changeInformation"></EditUserProfile>
+            </div>
+        </div>
+        <div id="phone">
+            {{ profile.phone }}
+            <button @click="changeProfileInfo" id="phoneButton">{{ editProfileButtonMessage[4] }}phone</button>
+            <div v-if="showForm[4]">
+                <EditUserProfile :index="index" @change-information="changeInformation"></EditUserProfile>
+            </div>
+        </div>
+        <button @click="deleteProfile">Delete profile</button>
+        <Popup v-if="showDelete" @close-popup="respuestaPopUp">
 
+        </Popup>
+        </div>
+        =======
+        -->
     <div class="page-content page-container" id="page-content">
         <div class="padding">
             <div class="row container d-flex justify-content-center">
@@ -19,20 +62,23 @@ import Popup from './Popup.vue';
                                             alt="User-Profile-Image">
                                     </div>
                                     <h6 class="f-w-600" id="name">{{ profile.name }}</h6>
-                                    <button @click="changeProfileInfo"
-                                        id="nameButton">{{ editProfileButtonMessage[0] }}name</button>
+                                    <button @click="changeProfileInfo" id="nameButton">{{ editProfileButtonMessage[0]
+                                    }}name</button>
                                     <div v-if="showForm[0]">
                                         <EditUserProfile :index="index" @change-information="changeInformation">
                                         </EditUserProfile>
                                     </div>
+                                    <!--
                                     <p>{{ profile.rol }}</p>
-                                    <button @click="changeProfileInfo"
-                                        id="rolButton">{{ editProfileButtonMessage[1] }}rol</button>
+                                    <button @click="changeProfileInfo" id="rolButton">{{
+                                            editProfileButtonMessage[1]
+                                    }}rol</button>
                                     <div v-if="showForm[1]">
                                         <EditUserProfile :index="index" @change-information="changeInformation">
                                         </EditUserProfile>
                                     </div>
                                     <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                    -->
                                 </div>
                             </div>
                             <div class="col-sm-8">
@@ -42,8 +88,9 @@ import Popup from './Popup.vue';
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Email</p>
                                             <h6 class="text-muted f-w-400"> {{ profile.email }}</h6>
-                                            <button @click="changeProfileInfo"
-                                                id="emailButton">{{ editProfileButtonMessage[3] }}email</button>
+                                            <button @click="changeProfileInfo" id="emailButton">{{
+                                                    editProfileButtonMessage[3]
+                                            }}email</button>
                                             <div v-if="showForm[3]">
                                                 <EditUserProfile :index="index" @change-information="changeInformation">
                                                 </EditUserProfile>
@@ -51,30 +98,29 @@ import Popup from './Popup.vue';
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Phone</p>
-                                            <h6 class="text-muted f-w-400">{{ profile.phone }}</h6>
-                                            <button @click="changeProfileInfo"
-                                                id="phoneButton">{{ editProfileButtonMessage[4] }}phone</button>
+                                            <h6 class="text-muted f-w-400">{{ profile.phone }}</h6><br>
+                                            <button @click="changeProfileInfo" id="phoneButton">{{
+                                                    editProfileButtonMessage[4]
+                                            }}phone</button>
                                             <div v-if="showForm[4]">
                                                 <EditUserProfile :index="index" @change-information="changeInformation">
                                                 </EditUserProfile>
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">ID</p>
                                         <h6 class="text-muted f-w-400"> {{ profile.dni }}</h6>
-                                        <button @click="changeProfileInfo"
-                                            id="dniButton">{{ editProfileButtonMessage[2] }}dni</button>
+                                        <button @click="changeProfileInfo" id="dniButton">{{
+                                                editProfileButtonMessage[2]
+                                        }}dni</button>
                                         <div v-if="showForm[2]">
                                             <EditUserProfile :index="index" @change-information="changeInformation">
                                             </EditUserProfile>
                                         </div>
                                     </div>
                                     <button @click="deleteProfile">Delete profile</button>
-                                    <Popup v-if="showDelete" @close-popup="respuestaPopUp">
-
-                                    </Popup>
+                                    <Popup v-if="showDelete" @close-popup="respuestaPopUp"></Popup>
                                 </div>
                             </div>
                         </div>
@@ -82,9 +128,8 @@ import Popup from './Popup.vue';
                 </div>
             </div>
         </div>
-    </div>
 
-   
+    </div>
 </template>
 
 <script>
@@ -149,7 +194,6 @@ export default {
             this.showDelete = !this.showDelete
         },
         async respuestaPopUp(borrado) {
-            debugger;
             this.showDelete = !this.showDelete
             if (borrado) {
                 this.$emit("home")
@@ -160,14 +204,6 @@ export default {
 </script>
 
 <style scoped>
-button{
-    height:30px;
-    border-radius: 5px;
-    background-color: #ff804500;
-    border-color:#ff804500;
-    color:#7e7e7e;
-    font-size:smaller;
-}
 #name {
     font-size: larger;
 }
@@ -298,5 +334,14 @@ h6 {
     margin: 0 10px 0 0;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+}
+
+button{
+    height:auto;
+    border-radius: 5px;
+    background-color: #ff804500;
+    border-color:#ff804586;
+    color:#7e7e7e;
+    font-size:smaller;
 }
 </style>
