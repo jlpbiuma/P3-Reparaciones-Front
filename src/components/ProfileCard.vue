@@ -218,6 +218,7 @@ export default {
     box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
     border: none;
     margin-bottom: 30px;
+    width:60vw;
 }
 
 .m-r-0 {
