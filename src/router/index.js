@@ -11,7 +11,7 @@ import SignupEmployeeView from '../views/BeforeLogin/SignupEmployeeView.vue'
 import SignupAdminView from '../views/BeforeLogin/SignupAdminView.vue'
 
 // AFTER LOGIN
-import RepairView from '../views/AfterLogin/RepairUnasignedView.vue'
+import AdminLoginView from '../views/BeforeLogin/AdminLoginView.vue'
 import NewRepairView from '../views/AfterLogin/NewRepairView.vue'
 import RepairDoneView from '../views/AfterLogin/RepairDoneView.vue'
 import RepairPendingView from '../views/AfterLogin/RepairAsignedView.vue'
@@ -65,6 +65,14 @@ const router = createRouter({
       }
     },
     // AFTER LOGIN
+    {
+      path: '/adminLogin',
+      name: 'adminlogin',
+      component: AdminLoginView,
+      meta: {
+        requiresAdmin: true
+      }
+    },
     {
       path: '/newRepair',
       name: 'newRepair',
