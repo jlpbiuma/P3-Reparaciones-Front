@@ -7,6 +7,8 @@ import ContactView from '../views/BeforeLogin/ContactView.vue'
 import HomeView from '../views/BeforeLogin/HomeView.vue'
 import LoginView from '../views/BeforeLogin/LoginView.vue'
 import SignupView from '../views/BeforeLogin/SignupView.vue'
+import SignupEmployeeView from '../views/BeforeLogin/SignupEmployeeView.vue'
+import SignupAdminView from '../views/BeforeLogin/SignupAdminView.vue'
 
 // AFTER LOGIN
 import RepairView from '../views/AfterLogin/RepairUnasignedView.vue'
@@ -20,6 +22,7 @@ import RepairDoneView from '../views/AfterLogin/RepairDoneView.vue'
 import RepairPendingView from '../views/AfterLogin/RepairAsignedView.vue'
 import RepairUnasignedView from '../views/AfterLogin/RepairUnasignedView.vue'
 import ProfileView from '../views/AfterLogin/ProfileView.vue'
+import ShiftsView from '../views/AfterLogin/ShiftsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -49,6 +52,22 @@ const router = createRouter({
       path: '/signup',
       name: 'signup',
       component: SignupView
+    },
+    {
+      path: '/signupEmployee',
+      name: 'signupEmployee',
+      component: SignupEmployeeView,
+      meta: {
+        requiresAdmin: true
+      }
+    },
+    {
+      path: '/signupAdmin',
+      name: 'signupAdmin',
+      component: SignupAdminView,
+      meta: {
+        requiresAdmin: true
+      }
     },
     // AFTER LOGIN
     {
@@ -87,6 +106,11 @@ const router = createRouter({
       path: '/profile',
       name: 'profile',
       component: ProfileView
+    },
+    {
+      path: '/shitfs',
+      name: 'shifts',
+      component: ShiftsView
     }
   ]
 })
@@ -95,9 +119,15 @@ router.beforeEach((to, _, next) => {
   const authStore = useAuthStore()
   // Si la ruta a donde quiero ir necesita autenticación
   // ... y no tengo el token, llévame a la pagina de login
+  debugger;
   if (to.meta.requiresAuth && !authStore.isLoggedIn) {
     next({ name: 'login' })
-  } else {
+  }
+  else if (to.meta.requiresAdmin && authStore.rol != "admin") {
+    
+    next({ name: 'login'})
+  }
+  else {
     next()
   }
 })

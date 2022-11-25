@@ -9,7 +9,7 @@ import RepairAsignedFormToDoneView from './RepairToDoneForm.vue';
         <div class="card-header text-primary">Pending</div>
         <div class="card-body">
             <div>
-                <h6 class="card-title">Device:</h6>
+                <h6 class="card-title mb-1">Device:</h6>
                 {{ repair.device }}
             </div>
             <div>
@@ -21,7 +21,15 @@ import RepairAsignedFormToDoneView from './RepairToDoneForm.vue';
                 {{ repair.selfdiagnosis }}
             </div>
             <div>
-                CLIENT: {{ repair.client }}
+                CLIENT: {{ clientName }}
+            </div>
+            <div v-if="authStore.repairViewState == 'asignedRepairs'"> 
+                TECHNICIAL: {{ employeeName}}
+            </div>
+            <div v-if="authStore.repairViewState == 'doneRepairs'">
+                PICKUPDATE: {{repair.pickupDate}}
+                TECH DIAGNOSIS: {{repair.techDiagnosis}}
+                COST: {{repair.price + "€"}}
             </div>
             <div v-if="authStore.rol != 'technical' && authStore.repairViewState == 'unasignedRepairs'">
                 <button @click="deleteRepair">DELETE THIS ONE!</button>
@@ -33,27 +41,11 @@ import RepairAsignedFormToDoneView from './RepairToDoneForm.vue';
                 <button v-if="!form" @click="activateForm">Finish repair!</button>
                 <button v-else @click="activateForm">Cancell finish repair!</button>
                 <div v-if="form">
-                    <RepairAsignedFormToDoneView :repair="repair"></RepairAsignedFormToDoneView>
+                    <RepairAsignedFormToDoneView :repair="repair" @finish="finish"></RepairAsignedFormToDoneView>
                 </div>
             </div>
-        </div>
-
+        </div>      
     </div>
-    <!-- <div>
-        DISPOSITIVO: {{repair.device}}
-    </div>
-    <div>
-        PROBLEMA: {{repair.issue}}
-    </div>
-    < AUTODIAGNÓSTICO: {{repair.selfdiagnosis}}
-    </div>
-    <div>
-        CLIENT: {{}}
-    </div> -->
-    <div>
-        
-    </div>
-
 </template>
 
 <script>
@@ -62,25 +54,32 @@ export default {
         return {
             authStore: useAuthStore(),
             disable: false,
-            form: false
+            form: false,
+            clientName: "",
+            employeeName: ""
         }
     },
     props: ['repair'],
+    async created() {
+        const responseClient = await API.getInfoFromClientID(this.repair.client,this.authStore.token)
+        this.clientName = responseClient.name;
+        const responseEmployee = await API.getInfoFromEmployeeID(this.repair.technician,this.authStore.token)
+        this.employeeName = responseEmployee.name;
+    },
     methods: {
         async deleteRepair() {
-            this.disable = false;
-            console.log(this.authStore.rol, this.authStore.repairViewState)
+            this.disable = true;
             const response = await API.deleteRepair(this.repair._id, this.authStore.token)
-            console.log("Objeto eleminado: ", response);
         },
         async asignRepair() {
-            console.log(this.repair._id)
-            console.log(this.authStore.token)
+            this.disable = true;
             const response = await API.putAsignToEmployee(this.repair._id, this.authStore.id, this.authStore.token)
-            console.log("Objeto asignado", response);
         },
         async activateForm() {
             this.form = !this.form;
+        },
+        async finish() {
+            this.disable = true;
         }
     }
 }

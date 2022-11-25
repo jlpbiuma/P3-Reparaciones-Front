@@ -37,13 +37,11 @@ export default {
     methods: {
         async putDone() {
             this.repair.techDiagnosis = this.techDiagnosis;
-            //2022-12-30T10:20:30.400+00:00
             this.repair.pickupDate =  this.pickupDateYear + "-" + this.pickupDateMonth + "-" + this.pickupDateDay + "T" + this.pickupDateHour + ":" + this.pickupDateMinute + ":00.000+00:00"
             this.repair.price = Number(this.price);
             const response = await API.putRepairToDone(this.repair._id,this.authStore.token,this.repair)
             this.finish = !this.finish
-            console.log(this.finish)
-            console.log(response);
+            this.$emit("finish")
         }
     }
 }

@@ -14,6 +14,21 @@ async function login(newUser) {
   return response.data;
 }
 
+async function getAllRegisters(token) {
+  const response = await API.get("/register/", {headers:{token}})
+  return response.data;
+}
+
+async function getInfoFromClientID(userId, token) {
+  const response = await API.get(`/users/client/${userId}`, {headers: {token}})
+  return response.data;
+}
+
+async function getInfoFromEmployeeID(userId, token) {
+  const response = await API.get(`/users/employee/${userId}`, {headers: {token}})
+  return response.data;
+}
+
 async function getAllUnasignedRepairs(token) {
   const response = await API.get(`/repairs/unasigned`, {headers: {token}})
   console.log(response);
@@ -60,8 +75,8 @@ async function getUserProfile(userId, token) {
   return response.data;
 }
 
-async function putUserProfile(userId, token) {
-  const response = await API.put(`/users/client/${userId}`,{}, {headers: { token }})
+async function putUserProfile(userId, object, token) {
+  const response = await API.put(`/users/client/${userId}`,object, {headers: { token }})
   return response.data;
 }
 
@@ -83,6 +98,9 @@ async function deleteRepair(repairId, token) {
 export default {
   signup,
   login,
+  getAllRegisters,
+  getInfoFromClientID,
+  getInfoFromEmployeeID,
   getAllUnasignedRepairs,
   getAllUnasignedRepairsByClientId,
   getAllAsignedRepairs,
