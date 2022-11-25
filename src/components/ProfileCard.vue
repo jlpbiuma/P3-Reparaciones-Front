@@ -5,7 +5,7 @@ import Popup from './Popup.vue';
 </script>
 
 <template>
- 
+
     <div class="page-content page-container" id="page-content">
         <div class="padding">
             <div class="row container d-flex justify-content-center">
@@ -15,46 +15,66 @@ import Popup from './Popup.vue';
                             <div class="col-sm-4 bg-c-lite-green user-profile">
                                 <div class="card-block text-center text-white">
                                     <div class="m-b-25">
-                                        <img src="../../images/profile.png" class="img-radius" style="width:10vw;" alt="User-Profile-Image">
+                                        <img src="../../images/profile.png" class="img-radius" style="width:10vw;"
+                                            alt="User-Profile-Image">
                                     </div>
                                     <h6 class="f-w-600" id="name">{{ profile.name }}</h6>
+                                    <button @click="changeProfileInfo"
+                                        id="nameButton">{{ editProfileButtonMessage[0] }}name</button>
+                                    <div v-if="showForm[0]">
+                                        <EditUserProfile :index="index" @change-information="changeInformation">
+                                        </EditUserProfile>
+                                    </div>
                                     <p>{{ profile.rol }}</p>
+                                    <button @click="changeProfileInfo"
+                                        id="rolButton">{{ editProfileButtonMessage[1] }}rol</button>
+                                    <div v-if="showForm[1]">
+                                        <EditUserProfile :index="index" @change-information="changeInformation">
+                                        </EditUserProfile>
+                                    </div>
                                     <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                                 </div>
                             </div>
                             <div class="col-sm-8">
                                 <div class="card-block">
-                                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600" >Information</h6>
+                                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Email</p>
                                             <h6 class="text-muted f-w-400"> {{ profile.email }}</h6>
+                                            <button @click="changeProfileInfo"
+                                                id="emailButton">{{ editProfileButtonMessage[3] }}email</button>
+                                            <div v-if="showForm[3]">
+                                                <EditUserProfile :index="index" @change-information="changeInformation">
+                                                </EditUserProfile>
+                                            </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600">Phone</p>
                                             <h6 class="text-muted f-w-400">{{ profile.phone }}</h6>
+                                            <button @click="changeProfileInfo"
+                                                id="phoneButton">{{ editProfileButtonMessage[4] }}phone</button>
+                                            <div v-if="showForm[4]">
+                                                <EditUserProfile :index="index" @change-information="changeInformation">
+                                                </EditUserProfile>
+                                            </div>
                                         </div>
                                     </div>
-                                  
-                                        <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">ID</p>
-                                            <h6 class="text-muted f-w-400"> {{ profile.dni }}</h6>
+
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">ID</p>
+                                        <h6 class="text-muted f-w-400"> {{ profile.dni }}</h6>
+                                        <button @click="changeProfileInfo"
+                                            id="dniButton">{{ editProfileButtonMessage[2] }}dni</button>
+                                        <div v-if="showForm[2]">
+                                            <EditUserProfile :index="index" @change-information="changeInformation">
+                                            </EditUserProfile>
                                         </div>
                                     </div>
-                                    <ul class="social-link list-unstyled m-t-40 m-b-10">
-                                        <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title=""
-                                                data-original-title="facebook" data-abc="true"><i
-                                                    class="mdi mdi-facebook feather icon-facebook facebook"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title=""
-                                                data-original-title="twitter" data-abc="true"><i
-                                                    class="mdi mdi-twitter feather icon-twitter twitter"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title=""
-                                                data-original-title="instagram" data-abc="true"><i
-                                                    class="mdi mdi-instagram feather icon-instagram instagram"
-                                                    aria-hidden="true"></i></a></li>
-                                    </ul>
+                                    <button @click="deleteProfile">Delete profile</button>
+                                    <Popup v-if="showDelete" @close-popup="respuestaPopUp">
+
+                                    </Popup>
                                 </div>
                             </div>
                         </div>
@@ -62,64 +82,25 @@ import Popup from './Popup.vue';
                 </div>
             </div>
         </div>
-    
-    <div id="containerProfile">
-        <div id="name">
-            {{profile.name}}
-            <button @click="changeProfileInfo" id="nameButton">{{editProfileButtonMessage[0]}}name</button>
-            <div v-if="showForm[0]">
-                <EditUserProfile :index="index" @change-information="changeInformation"></EditUserProfile>
-            </div>
-        </div>
-        <div id="rol">
-            {{profile.rol}}
-            <button @click="changeProfileInfo" id="rolButton">{{editProfileButtonMessage[1]}}rol</button>
-            <div v-if="showForm[1]">
-                <EditUserProfile :index="index" @change-information="changeInformation"></EditUserProfile>
-            </div>
-        </div>
-        <div id="dni">
-            {{profile.dni}}
-            <button @click="changeProfileInfo" id="dniButton">{{editProfileButtonMessage[2]}}dni</button>
-            <div v-if="showForm[2]">
-                <EditUserProfile :index="index" @change-information="changeInformation"></EditUserProfile>
-            </div>
-        </div>
-        <div id="email">
-            {{profile.email}}
-            <button @click="changeProfileInfo" id="emailButton">{{editProfileButtonMessage[3]}}email</button>
-            <div v-if="showForm[3]">
-                <EditUserProfile :index="index" @change-information="changeInformation"></EditUserProfile>
-            </div>
-        </div>
-        <div id="phone">
-            {{profile.phone}}
-            <button @click="changeProfileInfo" id="phoneButton">{{editProfileButtonMessage[4]}}phone</button>
-            <div v-if="showForm[4]">
-                <EditUserProfile :index="index" @change-information="changeInformation"></EditUserProfile>
-            </div>
-        </div>
-        <button @click="deleteProfile">Delete profile</button>
-        <Popup v-if="showDelete" @close-popup="respuestaPopUp">
-
-        </Popup>
     </div>
+
+   
 </template>
 
 <script>
 export default {
-    data () {
+    data() {
         return {
-            editProfileButtonMessage: ["Change my ","Change my ","Change my ","Change my ","Change my "],
+            editProfileButtonMessage: ["Change my ", "Change my ", "Change my ", "Change my ", "Change my "],
             showForm: [false, false, false, false, false, false],
             index: 0,
             showDelete: false
         }
     },
     props: ["profile"],
-    methods : {
+    methods: {
         async changeProfileInfo(e) {
-            switch (e.target.id){
+            switch (e.target.id) {
                 case "nameButton":
                     this.index = 0
                     break;
@@ -170,16 +151,24 @@ export default {
         async respuestaPopUp(borrado) {
             debugger;
             this.showDelete = !this.showDelete
-            if(borrado) {
+            if (borrado) {
                 this.$emit("home")
             }
         }
     }
-}
+} 
 </script>
 
 <style scoped>
-#name{
+button{
+    height:30px;
+    border-radius: 5px;
+    background-color: #ff804500;
+    border-color:#ff804500;
+    color:#7e7e7e;
+    font-size:smaller;
+}
+#name {
     font-size: larger;
 }
 
@@ -189,8 +178,8 @@ export default {
 
 .card {
     border-radius: 5px;
-    -webkit-box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
-    box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+    box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
     border: none;
     margin-bottom: 30px;
 }
@@ -208,7 +197,7 @@ export default {
 }
 
 .bg-c-lite-green {
-        background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
+    background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
     background: linear-gradient(to right, #ff8045, #ffe868);
 }
 
@@ -229,7 +218,7 @@ export default {
 }
 
 
- 
+
 h6 {
     font-size: 14px;
 }
@@ -238,10 +227,10 @@ h6 {
     line-height: 25px;
 }
 
-@media only screen and (min-width: 1400px){
-p {
-    font-size: 14px;
-}
+@media only screen and (min-width: 1400px) {
+    p {
+        font-size: 14px;
+    }
 }
 
 .card-block {
@@ -310,7 +299,4 @@ p {
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
-
-
-
 </style>
