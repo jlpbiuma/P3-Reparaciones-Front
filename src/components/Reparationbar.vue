@@ -25,7 +25,7 @@ import { useAuthStore } from '../stores/authStore'
             <button type="button" class="btn btn-outline-dark">History</button>
         </RouterLink>
         <RouterLink v-if="authStore.rol == 'admin'" to="/shitfs">
-            <button type="button" class="btn btn-outline-primary">See shifts</button>
+            <button type="button" class="btn btn-outline-dark">See shifts</button>
         </RouterLink>
     </nav>
 </template>
@@ -43,11 +43,14 @@ export default {
 <style>
 #reparationBar {
     display: flex;
-    justify-content: space-around;
 }
 .selected {
     background-color: rgb(255, 136, 0);
     border-radius: 8px;
+}
+button{
+    height: auto;
+    
 }
 
 

@@ -200,7 +200,7 @@ export default {
             }
         }
     }
-}
+} 
 </script>
 
 <style scoped>
@@ -337,10 +337,10 @@ h6 {
 }
 
 button{
-    height:30px;
+    height:auto;
     border-radius: 5px;
     background-color: #ff804500;
-    border-color:#ff804500;
+    border-color:#ff804586;
     color:#7e7e7e;
     font-size:smaller;
 }
